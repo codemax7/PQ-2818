@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UOB Chat Session Flow — sgsit_260226111719_1044</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07090f;
+    --surface: #0e1117;
+    --surface2: #131720;
+    --border: #1c2130;
+    --text: #cdd6f4;
+    --muted: #45475a;
+    --customer: #89dceb;
+    --bot: #a6e3a1;
+    --agent: #89b4fa;
+    --supervisor: #cba6f7;
+    --transfer: #fab387;
+    --error: #f38ba8;
+    --system: #94e2d5;
+    --queue: #f9e2af;
+    --end: #585b70;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    min-height: 100vh;
+  }
+  body::before {
+    content:'';
+    position:fixed; inset:0;
+    background-image:
+      linear-gradient(rgba(137,220,235,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(137,220,235,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events:none; z-index:0;
+  }
+  .page { position:relative; z-index:1; max-width:1020px; margin:0 auto; padding:48px 24px 100px; }
+
+  /* HEADER */
+  .header { margin-bottom:40px; animation: fadeDown 0.5s ease both; }
+  .header-eyebrow { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .header h1 { font-family:'Syne',sans-serif; font-size:26px; font-weight:800; color:#fff; }
+  .header h1 em { color:var(--customer); font-style:normal; }
+  .session-id {
+    display:inline-block; margin-top:10px; font-size:11px;
+    background:rgba(137,220,235,0.08); border:1px solid rgba(137,220,235,0.2);
+    color:var(--customer); padding:4px 12px; border-radius:20px; letter-spacing:1px;
+  }
+
+  /* META STRIP */
+  .meta-strip {
+    display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 36px;
+    animation: fadeDown 0.5s 0.05s ease both;
+  }
+  .meta-pill {
+    font-size:10px; background:var(--surface); border:1px solid var(--border);
+    padding:5px 12px; border-radius:5px; color:var(--muted);
+  }
+  .meta-pill b { color:var(--text); }
+
+  /* SUMMARY CARDS */
+  .summary-row {
+    display:grid; grid-template-columns:repeat(5,1fr); gap:10px;
+    margin-bottom:44px; animation: fadeDown 0.5s 0.1s ease both;
+  }
+  @media(max-width:700px){ .summary-row{ grid-template-columns:repeat(2,1fr); } }
+  .sum-card {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:8px; padding:14px 14px 12px; position:relative; overflow:hidden;
+  }
+  .sum-card::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; background:var(--c,var(--customer)); }
+  .sum-label { font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+  .sum-value { font-family:'Syne',sans-serif; font-size:16px; font-weight:700; color:var(--c,var(--customer)); line-height:1.2; }
+  .sum-sub { font-size:9px; color:var(--muted); margin-top:3px; }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--muted);
+    margin-bottom:18px; display:flex; align-items:center; gap:12px;
+  }
+  .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  /* ── SWIMLANE DIAGRAM ── */
+  .swimlane-wrap {
+    margin-bottom:50px; overflow-x:auto;
+    animation: fadeDown 0.5s 0.15s ease both;
+    padding-bottom:8px;
+  }
+  .swimlane {
+    min-width:860px; position:relative;
+    padding:0 20px 20px;
+  }
+
+  /* Lane headers */
+  .lane-headers {
+    display:grid;
+    grid-template-columns: 80px 1fr 1fr 1fr 1fr 1fr;
+    gap:0; margin-bottom:0;
+  }
+  .lane-head {
+    text-align:center; padding:10px 6px;
+    font-size:9px; letter-spacing:2px; text-transform:uppercase;
+    border-bottom:1px solid var(--border);
+  }
+  .lane-head .icon { font-size:18px; display:block; margin-bottom:4px; }
+  .lane-head .name { display:block; }
+
+  /* Lane body */
+  .lane-body {
+    display:grid;
+    grid-template-columns: 80px 1fr 1fr 1fr 1fr 1fr;
+    position:relative; min-height:560px;
+  }
+  .lane-col {
+    border-right:1px dashed rgba(255,255,255,0.04);
+    position:relative;
+  }
+  .lane-col:last-child { border-right:none; }
+  .time-col { border-right:1px solid var(--border); }
+
+  /* Events on swimlane */
+  .sw-event {
+    position:absolute; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center;
+    cursor:pointer; z-index:10;
+  }
+  .sw-dot {
+    width:14px; height:14px; border-radius:50%;
+    border:2px solid; display:flex; align-items:center; justify-content:center;
+    font-size:8px; transition:transform 0.2s;
+    position:relative;
+  }
+  .sw-event:hover .sw-dot { transform:scale(1.5); }
+  .sw-dot-glow {
+    position:absolute; inset:-4px; border-radius:50%;
+    animation:pulse 2.5s ease infinite; opacity:0.25;
+  }
+  .sw-label {
+    font-size:8px; color:var(--muted); text-align:center;
+    max-width:80px; line-height:1.3; margin-top:4px; white-space:nowrap;
+  }
+  .sw-time-label {
+    position:absolute; left:4px; font-size:9px; color:var(--muted);
+    transform:translateY(-50%); white-space:nowrap;
+  }
+
+  /* Arrows between swimlane events */
+  .sw-arrow {
+    position:absolute; height:2px; z-index:5;
+    display:flex; align-items:center;
+  }
+  .sw-arrow-line {
+    flex:1; height:2px;
+    background: repeating-linear-gradient(90deg, var(--c,#555) 0, var(--c,#555) 6px, transparent 6px, transparent 10px);
+  }
+  .sw-arrow::after {
+    content:'▶'; font-size:8px; color:var(--c,#555); margin-left:2px;
+  }
+  .sw-arrow-label {
+    position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+    font-size:8px; white-space:nowrap; color:var(--c,#555);
+  }
+
+  /* ── VERTICAL TIMELINE ── */
+  .timeline-wrap { animation: fadeDown 0.5s 0.2s ease both; }
+  .tl-track-wrap { position:relative; }
+  .tl-track {
+    position:absolute; left:128px; top:0; bottom:0; width:2px;
+    background:linear-gradient(to bottom, transparent, var(--border) 4%, var(--border) 96%, transparent);
+  }
+
+  .tl-row {
+    display:flex; margin-bottom:4px;
+    opacity:0; transform:translateX(-8px);
+    animation:slideIn 0.35s ease forwards;
+  }
+  .tl-time-col { width:120px; flex-shrink:0; text-align:right; padding-right:16px; padding-top:15px; }
+  .tl-time { font-size:10px; color:var(--muted); line-height:1.4; }
+  .tl-ms { font-size:8px; color:rgba(69,71,90,0.6); }
+  .tl-dot-col { width:16px; flex-shrink:0; display:flex; justify-content:center; }
+  .tl-dot {
+    width:12px; height:12px; border-radius:50%; margin-top:17px;
+    position:relative; z-index:2; flex-shrink:0; transition:transform 0.2s;
+  }
+  .tl-row:hover .tl-dot { transform:scale(1.5); }
+  .tl-dot-pulse { position:absolute; inset:-4px; border-radius:50%; animation:pulse 2.5s ease infinite; opacity:0.25; }
+  .tl-card-col { flex:1; padding:0 0 6px 16px; }
+
+  .tl-card {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:10px; overflow:hidden; cursor:pointer;
+    transition:border-color 0.2s, transform 0.15s;
+  }
+  .tl-card:hover { border-color:rgba(255,255,255,0.12); transform:translateX(4px); }
+  .tl-card.open { border-color:var(--c,var(--customer)); }
+  .tl-card-head {
+    display:flex; align-items:center; gap:10px; padding:11px 14px;
+    border-left:3px solid var(--c,var(--customer));
+  }
+  .tl-icon { font-size:15px; }
+  .tl-title { flex:1; font-family:'Syne',sans-serif; font-size:13px; font-weight:600; color:#fff; }
+  .tl-badge {
+    font-size:8px; letter-spacing:1.5px; text-transform:uppercase;
+    padding:2px 8px; border-radius:4px;
+    background:var(--bg2,rgba(0,0,0,0.3)); color:var(--c,var(--customer));
+    border:1px solid var(--c,var(--customer)); opacity:0.8;
+  }
+  .tl-chevron { font-size:9px; color:var(--muted); transition:transform 0.2s; margin-left:4px; }
+  .tl-card.open .tl-chevron { transform:rotate(180deg); }
+
+  .tl-body { display:none; padding:0 14px 14px; }
+  .tl-card.open .tl-body { display:block; }
+  .tl-divider { height:1px; background:var(--border); margin-bottom:12px; }
+
+  .detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  @media(max-width:500px){ .detail-grid{ grid-template-columns:1fr; } }
+  .d-item {
+    background:#0a0d14; border:1px solid var(--border);
+    border-radius:6px; padding:7px 10px;
+  }
+  .d-key { font-size:8px; letter-spacing:1px; color:var(--muted); text-transform:uppercase; margin-bottom:3px; }
+  .d-val { font-size:11px; color:var(--text); word-break:break-all; line-height:1.4; }
+  .d-val.highlight { color:var(--c,var(--customer)); font-weight:500; }
+
+  .chat-bubble-wrap { margin-top:10px; display:flex; flex-direction:column; gap:6px; }
+  .chat-bubble {
+    max-width:85%; padding:8px 12px; border-radius:10px;
+    font-size:11px; line-height:1.5;
+  }
+  .chat-bubble.bot { background:rgba(166,227,161,0.1); border:1px solid rgba(166,227,161,0.2); align-self:flex-start; color:#a6e3a1; }
+  .chat-bubble.customer { background:rgba(137,220,235,0.1); border:1px solid rgba(137,220,235,0.2); align-self:flex-end; color:#89dceb; }
+  .chat-ts { font-size:8px; color:var(--muted); margin-top:2px; }
+
+  .error-block {
+    background:rgba(243,139,168,0.07); border:1px solid rgba(243,139,168,0.3);
+    border-radius:7px; padding:10px 12px; margin-top:10px;
+  }
+  .error-title { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--error); margin-bottom:6px; }
+  .error-code { font-size:10px; color:var(--error); line-height:1.7; white-space:pre-wrap; }
+
+  .tag-row { display:flex; flex-wrap:wrap; gap:5px; margin-top:8px; }
+  .tag {
+    font-size:9px; padding:2px 8px; border-radius:12px;
+    background:rgba(255,255,255,0.04); border:1px solid var(--border); color:var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes slideIn  { to{opacity:1;transform:translateX(0)} }
+  @keyframes pulse    { 0%,100%{transform:scale(1);opacity:0.25} 50%{transform:scale(2);opacity:0} }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width:6px; height:6px; }
+  ::-webkit-scrollbar-track { background:transparent; }
+  ::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">UOB Contact Centre · TextchatServer · ntucmatsgv0e92 · 2026-02-26</div>
+  <h1>Chat Session <em>Trace Viewer</em></h1>
+  <div class="session-id">sgsit_260226111719_1044 &nbsp;|&nbsp; Session ID: 1044</div>
+</div>
+
+<!-- META -->
+<div class="meta-strip">
+  <div class="meta-pill">Customer NRIC <b>S7011782G</b></div>
+  <div class="meta-pill">CIF <b>0100000041</b></div>
+  <div class="meta-pill">Mobile <b>80001111</b></div>
+  <div class="meta-pill">Salutation <b>MR</b></div>
+  <div class="meta-pill">Segment <b>M – Maker</b></div>
+  <div class="meta-pill">Products <b>CASA + 2 Credit Cards</b></div>
+  <div class="meta-pill">Auth <b>NRIC + OTP ✓</b></div>
+  <div class="meta-pill">Channel <b>textchat / VisualIVR</b></div>
+  <div class="meta-pill">Language <b>English</b></div>
+  <div class="meta-pill">Survey <b>Enabled</b></div>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary-row">
+  <div class="sum-card" style="--c:var(--customer)">
+    <div class="sum-label">Session Duration</div>
+    <div class="sum-value">4m 03s</div>
+    <div class="sum-sub">11:17:19 → 11:21:22</div>
+  </div>
+  <div class="sum-card" style="--c:var(--bot)">
+    <div class="sum-label">Bot Sessions</div>
+    <div class="sum-value">2×</div>
+    <div class="sum-sub">ID 203078 (Entry + Re-join)</div>
+  </div>
+  <div class="sum-card" style="--c:var(--agent)">
+    <div class="sum-label">Human Agents</div>
+    <div class="sum-value">2</div>
+    <div class="sum-sub">Adhika + Anbu (Supervisor)</div>
+  </div>
+  <div class="sum-card" style="--c:var(--transfer)">
+    <div class="sum-label">Queue Hops</div>
+    <div class="sum-value">3</div>
+    <div class="sum-sub">6500207200 → 1003 → 6500207023</div>
+  </div>
+  <div class="sum-card" style="--c:var(--error)">
+    <div class="sum-label">Outcome</div>
+    <div class="sum-value" style="font-size:13px">SIP Failure</div>
+    <div class="sum-sub">Terminated @ 11:21:22</div>
+  </div>
+</div>
+
+<!-- SWIMLANE -->
+<div class="section-label">Participant Swimlane</div>
+<div class="swimlane-wrap">
+<svg id="swimlane-svg" width="100%" style="min-width:860px;display:block;" viewBox="0 0 860 580" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#555"/>
+    </marker>
+    <marker id="arr-transfer" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#fab387"/>
+    </marker>
+    <marker id="arr-error" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#f38ba8"/>
+    </marker>
+    <marker id="arr-bot" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#a6e3a1"/>
+    </marker>
+    <!-- glow filter -->
+    <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="580" fill="#07090f"/>
+
+  <!-- Grid bg -->
+  <rect x="0" y="0" width="860" height="580" fill="url(#grid)" opacity="0.4"/>
+
+  <!-- Lane columns -->
+  <!-- col widths: time=80, customer=130, bot=130, adhika=130, anbu=130, system=130+60=190 -->
+  <!-- x positions: time:0, customer:80, bot:210, adhika:340, anbu:470, system:600 -->
+
+  <!-- Lane header bg -->
+  <rect x="0" y="0" width="860" height="50" fill="#0e1117"/>
+  <line x1="0" y1="50" x2="860" y2="50" stroke="#1c2130" stroke-width="1"/>
+
+  <!-- Vertical lane dividers -->
+  <line x1="80"  y1="0" x2="80"  y2="580" stroke="#1c2130" stroke-width="1"/>
+  <line x1="210" y1="0" x2="210" y2="580" stroke="#1c2130" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="340" y1="0" x2="340" y2="580" stroke="#1c2130" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="470" y1="0" x2="470" y2="580" stroke="#1c2130" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="600" y1="0" x2="600" y2="580" stroke="#1c2130" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+  <!-- Lane header labels -->
+  <text x="40" y="22" text-anchor="middle" fill="#45475a" font-size="9" font-family="JetBrains Mono" letter-spacing="2">TIME</text>
+  <text x="145" y="18" text-anchor="middle" font-size="14">👤</text>
+  <text x="145" y="33" text-anchor="middle" fill="#89dceb" font-size="9" font-family="JetBrains Mono" letter-spacing="1">CUSTOMER</text>
+  <text x="145" y="44" text-anchor="middle" fill="#45475a" font-size="8" font-family="JetBrains Mono">S7011782G</text>
+
+  <text x="275" y="18" text-anchor="middle" font-size="14">🤖</text>
+  <text x="275" y="33" text-anchor="middle" fill="#a6e3a1" font-size="9" font-family="JetBrains Mono" letter-spacing="1">BOT</text>
+  <text x="275" y="44" text-anchor="middle" fill="#45475a" font-size="8" font-family="JetBrains Mono">UOB Digital Asst</text>
+
+  <text x="405" y="18" text-anchor="middle" font-size="14">🧑‍💼</text>
+  <text x="405" y="33" text-anchor="middle" fill="#89b4fa" font-size="9" font-family="JetBrains Mono" letter-spacing="1">ADHIKA</text>
+  <text x="405" y="44" text-anchor="middle" fill="#45475a" font-size="8" font-family="JetBrains Mono">ID:305004 sk:10508</text>
+
+  <text x="535" y="18" text-anchor="middle" font-size="14">👔</text>
+  <text x="535" y="33" text-anchor="middle" fill="#cba6f7" font-size="9" font-family="JetBrains Mono" letter-spacing="1">ANBU (SUP)</text>
+  <text x="535" y="44" text-anchor="middle" fill="#45475a" font-size="8" font-family="JetBrains Mono">ID:201005 sk:5940</text>
+
+  <text x="730" y="18" text-anchor="middle" font-size="14">⚙️</text>
+  <text x="730" y="33" text-anchor="middle" fill="#94e2d5" font-size="9" font-family="JetBrains Mono" letter-spacing="1">SYSTEM / QUEUE</text>
+  <text x="730" y="44" text-anchor="middle" fill="#45475a" font-size="8" font-family="JetBrains Mono">SessionQueueManager</text>
+
+  <!-- ────────────────────────────────────────────────
+       TIME AXIS (approximate vertical positions)
+       11:17:19 → y=70
+       11:17:19 → y=90 (bot connects)
+       11:17:20-11:18:15 → y=120-180 (chat)
+       11:18:16 → y=200 (requeue sip)
+       11:18:20 → y=240 (adhika)
+       11:18:20 → y=260 (bot1 end)
+       11:20:07 → y=320 (anbu)
+       11:20:56 → y=380 (requeue wq)
+       11:20:57 → y=400 (bot2)
+       11:21:00 → y=450 (sip fail)
+       11:21:22 → y=510 (session end)
+  ──────────────────────────────────────────────── -->
+
+  <!-- Time labels -->
+  <text x="75" y="75"  text-anchor="end" fill="#45475a" font-size="9" font-family="JetBrains Mono">11:17:19</text>
+  <text x="75" y="110" text-anchor="end" fill="#45475a" font-size="9" font-family="JetBrains Mono">11:17:20</text>
+  <text x="75" y="195" text-anchor="end" fill="#45475a" font-size="9" font-family="JetBrains Mono">11:18:16</text>
+  <text x="75" y="240" text-anchor="end" fill="#45475a" font-size="9" font-family="JetBrains Mono">11:18:20</text>
+  <text x="75" y="320" text-anchor="end" fill="#45475a" font-size="9" font-family="JetBrains Mono">11:20:07</text>
+  <text x="75" y="380" text-anchor="end" fill="#45475a" font-size="9" font-family="JetBrains Mono">11:20:56</text>
+  <text x="75" y="415" text-anchor="end" fill="#45475a" font-size="9" font-family="JetBrains Mono">11:20:57</text>
+  <text x="75" y="455" text-anchor="end" fill="#45475a" font-size="9" font-family="JetBrains Mono">11:21:00</text>
+  <text x="75" y="510" text-anchor="end" fill="#45475a" font-size="9" font-family="JetBrains Mono">11:21:22</text>
+
+  <!-- Horizontal tick lines -->
+  <line x1="80" y1="72"  x2="860" y2="72"  stroke="#1c2130" stroke-width="0.5" stroke-dasharray="2,8"/>
+  <line x1="80" y1="195" x2="860" y2="195" stroke="#1c2130" stroke-width="0.5" stroke-dasharray="2,8"/>
+  <line x1="80" y1="240" x2="860" y2="240" stroke="#1c2130" stroke-width="0.5" stroke-dasharray="2,8"/>
+  <line x1="80" y1="320" x2="860" y2="320" stroke="#1c2130" stroke-width="0.5" stroke-dasharray="2,8"/>
+  <line x1="80" y1="455" x2="860" y2="455" stroke="rgba(243,139,168,0.2)" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- ── EVENT NODES ── -->
+
+  <!-- 1. Customer Session Start -->
+  <circle cx="145" cy="72" r="8" fill="rgba(137,220,235,0.15)" stroke="#89dceb" stroke-width="2" filter="url(#glow)"/>
+  <text x="145" y="76" text-anchor="middle" fill="#89dceb" font-size="9">▶</text>
+  <text x="145" y="90" text-anchor="middle" fill="#89dceb" font-size="8" font-family="JetBrains Mono">Session Start</text>
+  <text x="145" y="100" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">sk:10456</text>
+
+  <!-- Route WQ → System -->
+  <line x1="153" y1="72" x2="710" y2="72" stroke="#94e2d5" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+  <text x="430" y="66" text-anchor="middle" fill="#94e2d5" font-size="8" font-family="JetBrains Mono">Route WQ → 6500207200</text>
+
+  <!-- System node: WQ -->
+  <circle cx="730" cy="72" r="7" fill="rgba(148,226,213,0.1)" stroke="#94e2d5" stroke-width="1.5"/>
+  <text x="730" y="76" text-anchor="middle" fill="#94e2d5" font-size="8">WQ</text>
+  <text x="730" y="90" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">HTTP 200</text>
+
+  <!-- Bot1 connects -->
+  <circle cx="275" cy="90" r="8" fill="rgba(166,227,161,0.15)" stroke="#a6e3a1" stroke-width="2" filter="url(#glow)"/>
+  <text x="275" y="94" text-anchor="middle" fill="#a6e3a1" font-size="9">🤖</text>
+  <text x="275" y="107" text-anchor="middle" fill="#a6e3a1" font-size="8" font-family="JetBrains Mono">Bot #1 joins</text>
+  <text x="275" y="117" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">ID:203078 ix:1070</text>
+
+  <!-- Chat conversation block -->
+  <rect x="100" y="128" width="90" height="58" rx="6" fill="rgba(137,220,235,0.06)" stroke="rgba(137,220,235,0.2)" stroke-width="1"/>
+  <text x="145" y="143" text-anchor="middle" fill="#89dceb" font-size="8" font-family="JetBrains Mono">Chat With Us</text>
+  <text x="145" y="155" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">11:17:25</text>
+  <text x="145" y="168" text-anchor="middle" fill="#89dceb" font-size="8" font-family="JetBrains Mono">NRIC: S7011782G</text>
+  <text x="145" y="180" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">11:18:09</text>
+
+  <rect x="230" y="128" width="90" height="58" rx="6" fill="rgba(166,227,161,0.06)" stroke="rgba(166,227,161,0.2)" stroke-width="1"/>
+  <text x="275" y="143" text-anchor="middle" fill="#a6e3a1" font-size="8" font-family="JetBrains Mono">Greeting sent</text>
+  <text x="275" y="155" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">11:17:20</text>
+  <text x="275" y="168" text-anchor="middle" fill="#a6e3a1" font-size="8" font-family="JetBrains Mono">Identity Verified</text>
+  <text x="275" y="180" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">OTP:Y NRIC:Y</text>
+
+  <!-- ReQueue SIP 1003 -->
+  <circle cx="275" cy="195" r="8" fill="rgba(250,179,135,0.15)" stroke="#fab387" stroke-width="2" filter="url(#glow)"/>
+  <text x="275" y="199" text-anchor="middle" fill="#fab387" font-size="8">↗</text>
+  <text x="275" y="212" text-anchor="middle" fill="#fab387" font-size="8" font-family="JetBrains Mono">ReQueue</text>
+  <text x="275" y="222" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">SIP → 1003</text>
+  <!-- arrow to system -->
+  <line x1="283" y1="195" x2="710" y2="195" stroke="#fab387" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-transfer)"/>
+  <text x="490" y="190" text-anchor="middle" fill="#fab387" font-size="8" font-family="JetBrains Mono">Queue VDN:1003 pos:1 · skill-based</text>
+
+  <!-- Adhika connects -->
+  <circle cx="405" cy="240" r="9" fill="rgba(137,180,250,0.15)" stroke="#89b4fa" stroke-width="2" filter="url(#glow)"/>
+  <text x="405" y="244" text-anchor="middle" fill="#89b4fa" font-size="10">🧑</text>
+  <text x="405" y="258" text-anchor="middle" fill="#89b4fa" font-size="8" font-family="JetBrains Mono">Adhika joins</text>
+  <text x="405" y="268" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">TmacServer3:11019</text>
+  <!-- arrow from bot to adhika -->
+  <line x1="283" y1="208" x2="396" y2="232" stroke="#fab387" stroke-width="1.5" marker-end="url(#arr-transfer)"/>
+  <text x="340" y="215" text-anchor="middle" fill="#fab387" font-size="8" font-family="JetBrains Mono">Transfer</text>
+
+  <!-- Bot1 ends -->
+  <circle cx="275" cy="260" r="6" fill="rgba(88,91,112,0.2)" stroke="#585b70" stroke-width="1.5"/>
+  <text x="275" y="264" text-anchor="middle" fill="#585b70" font-size="8">✕</text>
+  <text x="275" y="276" text-anchor="middle" fill="#585b70" font-size="7" font-family="JetBrains Mono">Bot #1 ends</text>
+  <text x="275" y="285" text-anchor="middle" fill="#585b70" font-size="7" font-family="JetBrains Mono">11:18:20</text>
+
+  <!-- Adhika active bar -->
+  <rect x="398" y="248" width="14" height="62" rx="3" fill="rgba(137,180,250,0.08)" stroke="rgba(137,180,250,0.2)" stroke-width="1"/>
+
+  <!-- Anbu joins -->
+  <circle cx="535" cy="320" r="9" fill="rgba(203,166,247,0.15)" stroke="#cba6f7" stroke-width="2" filter="url(#glow)"/>
+  <text x="535" y="324" text-anchor="middle" fill="#cba6f7" font-size="10">👔</text>
+  <text x="535" y="338" text-anchor="middle" fill="#cba6f7" font-size="8" font-family="JetBrains Mono">Anbu joins</text>
+  <text x="535" y="348" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">Supervisor · transfer</text>
+  <!-- arrow from adhika to anbu -->
+  <line x1="414" y1="310" x2="526" y2="312" stroke="#cba6f7" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+  <text x="470" y="305" text-anchor="middle" fill="#cba6f7" font-size="8" font-family="JetBrains Mono">Conference transfer</text>
+
+  <!-- Anbu active bar -->
+  <rect x="528" y="328" width="14" height="44" rx="3" fill="rgba(203,166,247,0.08)" stroke="rgba(203,166,247,0.2)" stroke-width="1"/>
+
+  <!-- ReQueue WQ 6500207023 -->
+  <circle cx="535" cy="380" r="8" fill="rgba(250,179,135,0.15)" stroke="#fab387" stroke-width="2" filter="url(#glow)"/>
+  <text x="535" y="384" text-anchor="middle" fill="#fab387" font-size="8">↗</text>
+  <text x="535" y="397" text-anchor="middle" fill="#fab387" font-size="8" font-family="JetBrains Mono">ReQueue WQ</text>
+  <text x="535" y="407" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">6500207023</text>
+  <!-- arrow to system -->
+  <line x1="543" y1="380" x2="710" y2="380" stroke="#fab387" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-transfer)"/>
+  <text x="625" y="374" text-anchor="middle" fill="#fab387" font-size="8" font-family="JetBrains Mono">WQ routing · Intent:UOBSGMaker</text>
+
+  <!-- System WQ node -->
+  <circle cx="730" cy="380" r="7" fill="rgba(250,179,135,0.1)" stroke="#fab387" stroke-width="1.5"/>
+  <text x="730" y="384" text-anchor="middle" fill="#fab387" font-size="8">WQ</text>
+  <text x="730" y="397" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">pos:1</text>
+
+  <!-- Bot2 connects -->
+  <circle cx="275" cy="415" r="8" fill="rgba(166,227,161,0.15)" stroke="#a6e3a1" stroke-width="2" filter="url(#glow)"/>
+  <text x="275" y="419" text-anchor="middle" fill="#a6e3a1" font-size="9">🤖</text>
+  <text x="275" y="432" text-anchor="middle" fill="#a6e3a1" font-size="8" font-family="JetBrains Mono">Bot #2 joins</text>
+  <text x="275" y="442" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">ID:203078 ix:1071 sk:7080</text>
+  <!-- arrow from system to bot2 -->
+  <line x1="723" y1="387" x2="283" y2="409" stroke="#a6e3a1" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-bot)"/>
+
+  <!-- SIP Failure -->
+  <circle cx="145" cy="455" r="10" fill="rgba(243,139,168,0.2)" stroke="#f38ba8" stroke-width="2.5" filter="url(#glow)"/>
+  <text x="145" y="460" text-anchor="middle" fill="#f38ba8" font-size="12" font-weight="bold">!</text>
+  <text x="145" y="472" text-anchor="middle" fill="#f38ba8" font-size="8" font-family="JetBrains Mono">SIP FAILURE</text>
+  <text x="145" y="482" text-anchor="middle" fill="#45475a" font-size="7" font-family="JetBrains Mono">SIPCallFailureException</text>
+  <!-- error spread line -->
+  <line x1="155" y1="455" x2="860" y2="455" stroke="rgba(243,139,168,0.3)" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- error impact on bot2 -->
+  <line x1="155" y1="455" x2="266" y2="430" stroke="#f38ba8" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-error)"/>
+
+  <!-- Session End -->
+  <circle cx="275" cy="510" r="7" fill="rgba(88,91,112,0.2)" stroke="#585b70" stroke-width="1.5"/>
+  <text x="275" y="514" text-anchor="middle" fill="#585b70" font-size="8">✕</text>
+  <text x="275" y="526" text-anchor="middle" fill="#585b70" font-size="8" font-family="JetBrains Mono">Bot #2 ends</text>
+
+  <circle cx="730" cy="510" r="7" fill="rgba(88,91,112,0.2)" stroke="#585b70" stroke-width="1.5"/>
+  <text x="730" y="514" text-anchor="middle" fill="#585b70" font-size="8">✕</text>
+  <text x="730" y="526" text-anchor="middle" fill="#585b70" font-size="8" font-family="JetBrains Mono">Queue cleared</text>
+
+  <!-- Final end line -->
+  <line x1="282" y1="510" x2="723" y2="510" stroke="#585b70" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="500" y="540" text-anchor="middle" fill="#585b70" font-size="8" font-family="JetBrains Mono">── Session 1044 fully terminated ──</text>
+
+</svg>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-wrap">
+  <div class="section-label">Detailed Event Log</div>
+  <div class="tl-track-wrap">
+    <div class="tl-track"></div>
+    <div id="tl-events"></div>
+  </div>
+</div>
+
+</div><!-- /page -->
+
+<script>
+const C = {
+  customer:   '#89dceb',
+  system:     '#94e2d5',
+  bot:        '#a6e3a1',
+  chat:       '#f9e2af',
+  transfer:   '#fab387',
+  agent:      '#89b4fa',
+  supervisor: '#cba6f7',
+  queue:      '#f9e2af',
+  error:      '#f38ba8',
+  end:        '#585b70',
+};
+
+const events = [
+  {
+    time:'11:17:19', ms:'233763', type:'customer', icon:'👤',
+    title:'Customer Session Start',
+    badge:'CUSTOMER',
+    tags:['textchat','VisualIVR','sk:10456','Thread_1'],
+    details:[
+      ['Session ID','1044'],
+      ['Token','sgsit_260226111719_1044'],
+      ['Channel','textchat'],
+      ['Chat Mode','text'],
+      ['Visual IVR','Enabled (1)'],
+      ['Bot SID','bec6e105-1f7a-4f14-ae85-e97dfdbafc94'],
+      ['Access Token','sit_1275'],
+      ['Captcha','12cc'],
+      ['Location','undefined,undefined'],
+      ['Server','ntucmatsgv0e92'],
+    ]
+  },
+  {
+    time:'11:17:19', ms:'272296', type:'system', icon:'🔀',
+    title:'Work Queue Routing — HTTP 200',
+    badge:'SYSTEM',
+    tags:['WQServer','AddWorkItemWithCustomerIdentifier','.NET TP Worker'],
+    details:[
+      ['Response','HTTP 200 ✓'],
+      ['WQ Server','ntucmatsgv0e90.sg.uobnet.com:22003'],
+      ['API','AddWorkItemWithCustomerIdentifier'],
+      ['Handler','ExternalServiceHandler'],
+      ['Thread','.NET TP Worker'],
+    ]
+  },
+  {
+    time:'11:17:19', ms:'272658', type:'bot', icon:'🤖',
+    title:'UOB Digital Assistant Connected (Bot #1)',
+    badge:'BOT',
+    tags:['Chatbot','sk:5044','TmacServer5','interactionId:1070'],
+    details:[
+      ['Agent ID','203078'],
+      ['Agent Name','UOB Digital Assistant'],
+      ['Agent Type','Chatbot'],
+      ['Skill','5044'],
+      ['Interaction ID','1070'],
+      ['Conference Type','(none)'],
+      ['TmacServer','TmacServer5 · port 11019'],
+      ['Server','ntucmbtsgv0e88.sg.uobnet.com:11029'],
+    ]
+  },
+  {
+    time:'11:17:19', ms:'273626', type:'queue', icon:'📥',
+    title:'Call Queued — VDN 6500207200',
+    badge:'QUEUE',
+    tags:['VDN:6500207200','Type:R','pos:1'],
+    details:[
+      ['VDN','6500207200'],
+      ['Session ID','1044'],
+      ['Queue Type','R (Real)'],
+      ['Position','1'],
+      ['Content','6500207200,1,1044,sgsit_260226111719_1044,,0'],
+    ]
+  },
+  {
+    time:'11:17:20 – 11:18:15', ms:'', type:'chat', icon:'💬',
+    title:'Bot Conversation & Identity Verification',
+    badge:'CHAT',
+    tags:['NRIC:S7011782G','OTP:Y','CIF:0100000041','LiveChat'],
+    details:[
+      ['Customer Name','NAME1 100000041 (MR)'],
+      ['NRIC','S7011782G (SG · IC)'],
+      ['CIF','0100000041'],
+      ['Mobile','80001111'],
+      ['Segment','P → M (Maker)'],
+      ['Products','CASA + 2 Credit Cards'],
+      ['Credit Cards','4265884031602914, 4265884070154918'],
+      ['Accounts','1013600282 (current)'],
+      ['OTP Verified','Y'],
+      ['NRIC Valid','Y'],
+      ['Auth Type','a'],
+      ['Is Identified','Y'],
+      ['Is Verified','Y'],
+      ['Language','English'],
+      ['Survey Flag','Y'],
+    ],
+    chat:[
+      {who:'bot',  msg:'Hi! I am your UOB Digital Assistant. How may I help you?', ts:'11:17:20'},
+      {who:'cust', msg:'Chat With Us', ts:'11:17:25'},
+      {who:'cust', msg:'IdentificationData: S7011782G', ts:'11:18:09'},
+      {who:'bot',  msg:'Please wait while I connect you to a service representative.', ts:'11:18:13'},
+      {who:'bot',  msg:'Chat Survey will be available at the end of the agent interaction.', ts:'11:18:15'},
+    ]
+  },
+  {
+    time:'11:18:16', ms:'418187', type:'transfer', icon:'📞',
+    title:'ReQueue → SIP Skill 1003',
+    badge:'TRANSFER',
+    tags:['SIP','skill:1003','MAKER','Intent:LiveChat','survey:Y'],
+    details:[
+      ['ReQueue Type','SIP'],
+      ['Target Skill','1003'],
+      ['Transfer VDN','1003'],
+      ['Flow Type','MAKER'],
+      ['Segment','M'],
+      ['Intent','LiveChat'],
+      ['Is Working Hour','Y'],
+      ['Day','Thursday'],
+      ['Operating Hours','00:00:00 – 23:59:59'],
+      ['Bypass Public Holiday','Y'],
+      ['Wait Limit','180 seconds'],
+      ['DAC Age','3'],
+      ['Skill Based Routing','true'],
+      ['Survey Node','5b3ccaaf-ab44-43a4-8c54-12935edab10f-122457998'],
+      ['Survey Intent','UOBSGMaker'],
+      ['Entity','VIVR, SmartDialler'],
+      ['Bypass SMS OTP','Y'],
+      ['Host Status','Y'],
+      ['Response Code','000 / 200'],
+    ]
+  },
+  {
+    time:'11:18:16', ms:'425363', type:'queue', icon:'📥',
+    title:'Call Queued — VDN 1003',
+    badge:'QUEUE',
+    tags:['VDN:1003','Type:R','pos:1','PerformSIPCall'],
+    details:[
+      ['VDN','1003'],
+      ['Session ID','1044'],
+      ['Queue Type','R (Real)'],
+      ['Position','1'],
+      ['Thread','PerformSIPCall_4e7af35a-ade1-4992-ab10-e58467729aa5'],
+      ['Content','1003,1,1044,sgsit_260226111719_1044,,3'],
+    ]
+  },
+  {
+    time:'11:18:20', ms:'386744', type:'agent', icon:'🧑‍💼',
+    title:'Agent Adhika Connected',
+    badge:'AGENT',
+    tags:['ID:305004','sk:10508','TmacServer3','interactionId:1002'],
+    details:[
+      ['Agent ID','305004'],
+      ['Agent Name','Adhika'],
+      ['Skill','10508'],
+      ['Interaction ID','1002'],
+      ['Conference Type','(none)'],
+      ['Agent Type','(standard)'],
+      ['TmacServer','TmacServer3 · port 11019'],
+      ['Server','ntucmbtsgv0e88.sg.uobnet.com:11019'],
+      ['Removed VDN','6500207200 (Type: Real)'],
+    ]
+  },
+  {
+    time:'11:18:20', ms:'482738', type:'end', icon:'🔴',
+    title:'Bot #1 Session Ended',
+    badge:'SESSION END',
+    tags:['ID:203078','sk:5044','EndTextChat'],
+    details:[
+      ['Agent ID','203078'],
+      ['Msg Type','SessionEnd'],
+      ['Content','EndTextChat'],
+      ['Skill','5044'],
+      ['Msg Length','11'],
+    ]
+  },
+  {
+    time:'11:20:07', ms:'303916', type:'supervisor', icon:'👔',
+    title:'Supervisor Anbu Connected (Transfer)',
+    badge:'SUPERVISOR',
+    tags:['ID:201005','sk:5940','AgentSupervisor','TmacServer1','conferenceType:transfer'],
+    details:[
+      ['Agent ID','201005'],
+      ['Agent Name','Anbu'],
+      ['Role','AgentSupervisor'],
+      ['Skill','5940'],
+      ['Interaction ID','1001'],
+      ['Conference Type','transfer'],
+      ['TmacServer','TmacServer1 · port 11009'],
+      ['Server','ntucmbtsgv0e88.sg.uobnet.com:11009'],
+      ['Queue Item','Phantom (VDN:-1) removed'],
+    ]
+  },
+  {
+    time:'11:20:56', ms:'940993', type:'transfer', icon:'🔁',
+    title:'ReQueue → Work Queue 6500207023',
+    badge:'TRANSFER',
+    tags:['WQ','6500207023','UOBSGMaker','botconference','survey'],
+    details:[
+      ['ReQueue Type','WQ (Work Queue)'],
+      ['Target VDN','6500207023'],
+      ['Intent','UOBSGMaker'],
+      ['User ID','80001111'],
+      ['Channel','text'],
+      ['Chat Mode','text'],
+      ['Param5','botconference'],
+      ['Survey Node','5b3ccaaf-ab44-43a4-8c54-12935edab10f-122457998'],
+      ['Agent','Anbu (201005)'],
+      ['Thread','PerfomWorQueueRouting_ba7baf40'],
+    ]
+  },
+  {
+    time:'11:20:56', ms:'957306', type:'queue', icon:'📥',
+    title:'Call Queued — VDN 6500207023',
+    badge:'QUEUE',
+    tags:['VDN:6500207023','Type:R','pos:1'],
+    details:[
+      ['VDN','6500207023'],
+      ['Session ID','1044'],
+      ['Queue Type','R (Real)'],
+      ['Position','1'],
+      ['Content','6500207200,1,1044,sgsit_260226111719_1044,,2'],
+      ['Thread','PerfomWorQueueRouting_ba7baf40-9bb5-4d25-86b7-56ffb370d2dc'],
+    ]
+  },
+  {
+    time:'11:20:57', ms:'067575', type:'bot', icon:'🤖',
+    title:'UOB Digital Assistant Re-Connected (Bot #2)',
+    badge:'BOT',
+    tags:['ID:203078','sk:7080','TmacServer5','interactionId:1071'],
+    details:[
+      ['Agent ID','203078'],
+      ['Agent Name','UOB Digital Assistant'],
+      ['Agent Type','Chatbot'],
+      ['Skill','7080'],
+      ['Interaction ID','1071'],
+      ['TmacServer','TmacServer5 · port 11029'],
+      ['Server','ntucmbtsgv0e88.sg.uobnet.com:11029'],
+      ['Removed VDN','6500207023 (Type: Real)'],
+    ]
+  },
+  {
+    time:'11:21:00', ms:'233789', type:'error', icon:'❌',
+    title:'SIP Call Failure — Unexpected Termination',
+    badge:'ERROR',
+    tags:['SIPCallFailureException','PerformSIPCall','Thread:4e7af35a'],
+    details:[
+      ['Error Class','SIPCallFailureException'],
+      ['Message','Unexpected error'],
+      ['Thread','PerformSIPCall_4e7af35a-ade1-4992-ab10-e58467729aa5'],
+      ['Method','SipCallHandling(QueueStatusForSkill, PassParam, String Extension)'],
+      ['Class','TextchatServer.Customer'],
+      ['Skill','10456'],
+      ['Session','sgsit_260226111719_1044'],
+      ['Queue Cleared','Phantom item (VDN:-1) removed'],
+    ],
+    error:'TextchatServer.Customer+SIPCallFailureException: Unexpected error\n   at TextchatServer.Customer.SipCallHandling(QueueStatusForSkill qssk, PassParam p, String Extension)'
+  },
+  {
+    time:'11:21:22', ms:'986786', type:'end', icon:'🔴',
+    title:'Session Fully Terminated',
+    badge:'SESSION END',
+    tags:['EndTextChat','sk:7080','Queue cleared','1044 closed'],
+    details:[
+      ['Bot #2 (203078)','SessionEnd → EndTextChat'],
+      ['Skill','7080'],
+      ['WQ Queue','Phantom removed (PerfomWorQueueRouting)'],
+      ['VDNSessionList','SessionID 1044 not found'],
+      ['Final State','All references cleared'],
+      ['Timestamp','11:21:22.986786 / 998996'],
+    ]
+  },
+];
+
+const container = document.getElementById('tl-events');
+
+events.forEach((ev, i) => {
+  const color = C[ev.type] || '#555';
+  const id = 'ev' + i;
+  const row = document.createElement('div');
+  row.className = 'tl-row';
+  row.style.animationDelay = (i * 0.06) + 's';
+
+  let detailsHtml = '<div class="detail-grid">';
+  ev.details.forEach(([k,v]) => {
+    const hi = (k==='Response'||k==='Error Class'||k==='Role') ? ' highlight' : '';
+    detailsHtml += `<div class="d-item"><div class="d-key">${k}</div><div class="d-val${hi}">${v}</div></div>`;
+  });
+  detailsHtml += '</div>';
+
+  if (ev.chat) {
+    detailsHtml += '<div class="chat-bubble-wrap">';
+    ev.chat.forEach(c => {
+      detailsHtml += `<div><div class="chat-bubble ${c.who==='bot'?'bot':'customer'}">${c.msg}</div><div class="chat-ts" style="text-align:${c.who==='bot'?'left':'right'}">${c.ts}</div></div>`;
+    });
+    detailsHtml += '</div>';
+  }
+
+  if (ev.error) {
+    detailsHtml += `<div class="error-block"><div class="error-title">Stack Trace</div><div class="error-code">${ev.error}</div></div>`;
+  }
+
+  if (ev.tags && ev.tags.length) {
+    detailsHtml += '<div class="tag-row">' + ev.tags.map(t=>`<span class="tag">${t}</span>`).join('') + '</div>';
+  }
+
+  row.innerHTML = `
+    <div class="tl-time-col">
+      <div class="tl-time">${ev.time}</div>
+      ${ev.ms ? `<div class="tl-ms">.${ev.ms}</div>` : ''}
+    </div>
+    <div class="tl-dot-col">
+      <div class="tl-dot" style="background:${color};box-shadow:0 0 6px ${color}55">
+        <div class="tl-dot-pulse" style="background:${color}"></div>
+      </div>
+    </div>
+    <div class="tl-card-col">
+      <div class="tl-card" id="${id}" style="--c:${color}" onclick="toggle('${id}')">
+        <div class="tl-card-head">
+          <span class="tl-icon">${ev.icon}</span>
+          <span class="tl-title">${ev.title}</span>
+          <span class="tl-badge" style="color:${color};border-color:${color}44;background:${color}11">${ev.badge}</span>
+          <span class="tl-chevron">▼</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-divider"></div>
+          ${detailsHtml}
+        </div>
+      </div>
+    </div>`;
+  container.appendChild(row);
+});
+
+function toggle(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+</script>
+</body>
+</html>
