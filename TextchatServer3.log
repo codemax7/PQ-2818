@@ -1,0 +1,855 @@
+2025-05-28 12:55:34 867042 |(3d08775eec07)| DEBUG   |[1  ]| Program | PrintProductVersion: SERVER STARTING. VERSION : 4.3.0.0     
+2025-05-28 12:55:35 202591 |(3d08775eec07)| INFO    |[1  ]| ConfigurationHandler.ConfigManager | Initialize: Config Loader => UpdateConfigFromTmc = success     
+2025-05-28 12:55:35 203343 |(3d08775eec07)| INFO    |[1  ]| ConfigurationHandler.ConfigManager | LoadConfiguration: appsettings.json file path = /tetherfi/tetherfihome/commserver/appsettings.json     
+2025-05-28 12:55:35 202642 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| Tetherfi.Core.ConfigLoader.ConfigLoader | Application Assembly path /tetherfi/tetherfihome/commserver/     
+2025-05-28 12:55:35 265266 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| Tetherfi.Core.ConfigLoader.ConfigLoader | GetProductVersion()     
+2025-05-28 12:55:35 362570 |(3d08775eec07)| INFO    |[1  ]| ConfigurationHandler.ConfigManager | SetConfigurationSetting: Cid range start added     
+2025-05-28 12:55:35 362836 |(3d08775eec07)| INFO    |[1  ]| ConfigurationHandler.ConfigManager | SetConfigurationSetting: Cid range end added     
+2025-05-28 12:55:35 363012 |(3d08775eec07)| INFO    |[1  ]| ConfigurationHandler.ConfigManager | SetConfigurationSetting: Instance added     
+2025-05-28 12:55:35 363118 |(3d08775eec07)| INFO    |[1  ]| ConfigurationHandler.ConfigManager | SetConfigurationSetting: TLS added     
+2025-05-28 12:55:35 363219 |(3d08775eec07)| INFO    |[1  ]| ConfigurationHandler.ConfigManager | SetConfigurationSetting: Certificate folder added     
+2025-05-28 12:55:35 363295 |(3d08775eec07)| INFO    |[1  ]| ConfigurationHandler.ConfigManager | Initialize: Configuration data loaded successfully     
+2025-05-28 12:55:35 375061 |(3d08775eec07)| INFO    |[1  ]| ConfigurationHandler.ConfigManager | Initialize: Configuration data : {"AppSettings":{"ProductName":"TCommServer","Instance":"dev","CertThumb":"","DecryptKeyFile":"encrypt.key","Conn_TLS_TLS11_TLS12":"TLS12","SyncQueueServers":"localhost:50001,10.133.146.7:50001","EnableQueueSync":"false","MaxChatCallDurationInMinutes":"50","SslVersion":"Tls12","Log4NetConfigFile":"Log4Net.config","HealthCheckAddress":"http://localhost:2244/health/","IsDeveloperLicenseEnabled":true,"WebApiServicePort":"2245","IsHealthCheckRandomSuffixUsed":true,"AECEndpoint":null},"Listeners":[{"Type":"websocket","Port":"22556","User":"customer","IsSecure":"false","ClientName":null,"Cert":"","CertPassword":""},{"Type":"tcp","Port":"2324","User":"customer","IsSecure":"false","ClientName":null,"Cert":"","CertPassword":""},{"Type":"tcp","Port":"50000","User":"syncqueue","IsSecure":null,"ClientName":null,"Cert":null,"CertPassword":null},{"Type":"tcp","Port":"2334","User":"agent","IsSecure":"false","ClientName":null,"Cert":null,"CertPassword":null},{"Type":"websocket","Port":"11011","User":"monitor","IsSecure":null,"ClientName":null,"Cert":null,"CertPassword":null}],"SipConfigs":{"SipConfWsPort":"60601","SipConfProcessPath":""},"TSipConfigs":{"TSipCliStartPort":"3000","TSipCliEndPort":"3100"},"ChatHandlerConfigs":{"ChatHandlerDll":"SessionInfoHandler","ChatHandlerClass":"SessionInfoHandler.SelfServiceHandler"},"CidConfigs":{"RangeStart":"3000","RangeEnd":"3100"},"RConfigs":{"RConfigPort":"65500","RConfigAppName":"tchat"},"ServiceDiscovery":{"ServiceDiscoveryFrom":true,"ServiceDiscoveryAddressFrequency":"15000","ServiceDiscoveryExternalAudience":"TCOMM","ServiceTypeVDN":"VDN","ServiceTypePBX":"SIPTRUNK","Audience":[]},"AdditionalConfigs":{"IvrTempFile":"","FromDomain1":"","FromDomain2":"","ToDomain1":"","ToDomain2":"","SessionTimeout":"","ListnerPort":"","MediaServerRedirectTypes":"","MediaServerForwardTypes":"","CertificateFolder":"","KcinSOIUrl":"https://localhost:12345/Services/queryParty_v4_4_0"},"ThirdPartyPlugInConfigurations":{"DisallowedToPublishMessageTypes":[],"AllowedThirdPartyMessageTypes":{},"PlugInConfigurations":{},"PlugInDirectory":""},"MMMSettings":{"IsEnabled":false,"WebSocketEndpoint":"ws://127.0.0.1:22557"}}     
+2025-05-28 12:55:35 375291 |(3d08775eec07)| INFO    |[1  ]| Program | InitializeConfigurations: Load application configuration : success     
+2025-05-28 12:55:35 453983 |(3d08775eec07)| INFO    |[1  ]| RConfigProvider.ConfigStore | Reading config xml     
+2025-05-28 12:55:35 455553 |(3d08775eec07)| INFO    |[1  ]| RConfigProvider.ConfigStore | Loading configs     
+2025-05-28 12:55:35 463507 |(3d08775eec07)| INFO    |[1  ]| RConfigProvider.ConfigStore | Configs loaded, Spawning store thread     
+2025-05-28 12:55:39 664917 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.PBXInfo | PBXInfo() : siplibray = default     
+2025-05-28 12:55:39 680300 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.PBXInfo | AssignConfigItem: No records found from Service Discovery - Service Type : SIPTRUNK, Key : pbx1.addr     
+2025-05-28 12:55:39 680470 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.PBXInfo | AssignConfigItem: No records found from Service Discovery - Service Type : SIPTRUNK, Key : pbx1.port     
+2025-05-28 12:55:39 680549 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.PBXInfo | AssignConfigItem: No records found from Service Discovery - Service Type : SIPTRUNK, Key : pbx2.addr     
+2025-05-28 12:55:39 680657 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.PBXInfo | AssignConfigItem: No records found from Service Discovery - Service Type : SIPTRUNK, Key : pbx2.port     
+2025-05-28 12:55:39 680972 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.PBXInfo | AssignConfigItem: No records found from Service Discovery - Service Type : SIPTRUNK, Key : pbx.vdn     
+2025-05-28 12:55:39 681741 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.PBXInfo | ValidatePBXInfo() : No records found for PBX Info     
+2025-05-28 12:55:39 682208 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Starter | Start() : routepath = wq, supportmultiroutepath = false     
+2025-05-28 12:55:39 706808 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.LicenseManager | ValidateLicense: The application is running as a release mode     
+2025-05-28 12:55:39 770557 |(3d08775eec07)| DEBUG   |[1  ]| ExternalServiceConnector.Handlers.ExternalServiceHandler | GetLicenseDetails: Fetching license details from service discovery     
+2025-05-28 12:55:40 653125 |(3d08775eec07)| DEBUG   |[1  ]| ExternalServiceConnector.Handlers.ExternalServiceHandler | LoggedServiceDiscoveryAddress: LicenseServer Service Discovery Addresses, Method = GetLicenseDetails, {"ServiceDiscoveryEnabled":true,"RefreshFrequency":15000,"EndPoints":[{"Id":"LicenseServer1","Url":"http://172.16.2.140:17000/LicenseServer/soap","CertificatePath":null,"CertificatePassword":null,"Protocol":null,"MaxReceivedMessageSize":0,"MaxBufferPoolSize":0,"Type":"LicenseServer","Channel":null,"Name":"LicenseServer","Properties":null}]}     
+2025-05-28 12:55:40 674834 |(3d08775eec07)| DEBUG   |[1  ]| ExternalServiceConnector.Handlers.ExternalServiceHandler | GetLicenseDetails: All TComm Server records: [{"AgentScripting":null,"AgentVideoPopComponents":null,"CampaignManager":null,"ContactDetails":"Pertamina","DialerComponents":null,"EmailManagerComponent":null,"HostIntegraton":null,"Hostname":"WIN-479TLUVR4UF","IPAdddress":"172.16.2.140","InteractionWorkflow":null,"LicenseDescription":"Valid License","LicenseKey":null,"LicenseStatus":true,"MacAdddress":"08:00:27:9D:EA:8D","MaxSessionAllowed":10,"MediaRecorderComponents":null,"MediaServerComponents":null,"MediaServerProxyComponents":null,"ServerLicenseIssueDateTime":"2024-11-27T11:41:27.5362177+00:00","ServerLicenseIssuedto":"Pertamina","ServiceStatus":"[]","TcommProxyComponents":null,"TcommServerComponents":{"Channels":[1,2],"MaxConcurrentSessionCount":10,"ExpiryDateTime":"2025-11-27T11:41:27.5362177+00:00","IssueDateTime":"2024-11-27T11:41:27.5362177+00:00","LicenseDescription":"Valid License","LicenseStatus":true,"NumbeofInstances":1,"ProductKey":null},"TmacComponent":null}]     
+2025-05-28 12:55:40 675606 |(3d08775eec07)| DEBUG   |[1  ]| ExternalServiceConnector.Handlers.ExternalServiceHandler | GetLicenseDetails: Filtered minimum concurrent session count record: {"Channels":[1,2],"MaxConcurrentSessionCount":10,"ExpiryDateTime":"2025-11-27T11:41:27.5362177+00:00","IssueDateTime":"2024-11-27T11:41:27.5362177+00:00","LicenseDescription":"Valid License","LicenseStatus":true,"NumbeofInstances":1,"ProductKey":null}     
+2025-05-28 12:55:40 675938 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.LicenseManager | CheckServerLicense: Valid License found from license server     
+2025-05-28 12:55:40 676198 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | Valid license found     
+2025-05-28 12:55:40 677041 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.Server | Product Version: 4.3.0.0     
+2025-05-28 12:55:40 677162 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | MaxSessionLimitCount: 10     
+2025-05-28 12:55:40 677245 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | Loading configs..     
+2025-05-28 12:55:40 677313 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: rconfig.*     
+2025-05-28 12:55:40 684018 |(3d08775eec07)| INFO    |[1  ]| RConfigProvider.Listener | Config Url : http://+:65500/rconfig_tchat/     
+2025-05-28 12:55:40 685869 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: cert.thumb     
+2025-05-28 12:55:40 687381 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: rqdrop.limit     
+2025-05-28 12:55:40 687645 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: decrypt.enable     
+2025-05-28 12:55:40 687769 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | = false     
+2025-05-28 12:55:40 687885 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: session.timeout     
+2025-05-28 12:55:40 687974 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | = 60 sec.     
+2025-05-28 12:55:40 688050 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: testappsupport     
+2025-05-28 12:55:40 688128 |(3d08775eec07)| INFO    |[.NET TP Worker]| RConfigProvider.Listener |  started     
+2025-05-28 12:55:40 688329 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server |     = true     
+2025-05-28 12:55:40 688462 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: sessionInfo Dll     
+2025-05-28 12:55:40 688614 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server |    chat = SessionInfoHandler.SelfServiceHandler, SessionInfoHandler     
+2025-05-28 12:55:40 688718 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: callbackbypass     
+2025-05-28 12:55:40 688990 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server |     = false     
+2025-05-28 12:55:40 689114 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: offlineMode     
+2025-05-28 12:55:40 689206 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server |     = false     
+2025-05-28 12:55:40 689288 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: TMACTimeout     
+2025-05-28 12:55:40 689371 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server |     = 10000     
+2025-05-28 12:55:40 689447 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: agent.treadlocktimeout = 10000     
+2025-05-28 12:55:40 689557 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: blindtransfer.timeout     
+2025-05-28 12:55:40 689644 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server |     = 3000     
+2025-05-28 12:55:40 689718 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: enable.callagentMsg     
+2025-05-28 12:55:40 689785 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server |    = false     
+2025-05-28 12:55:40 689875 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: avmonitor     
+2025-05-28 12:55:40 690209 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server |     = false     
+2025-05-28 12:55:40 691371 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: lockWaitTime : 5000 sec     
+2025-05-28 12:55:40 691563 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: reportHandler : true     
+2025-05-28 12:55:40 691640 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | Initializing SessionQueueManager     
+2025-05-28 12:55:40 693670 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.QueueMonitor | QueueMonitor : Initialize() starts     
+2025-05-28 12:55:40 693892 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.QueueMonitor |  Queue sync is disabled     
+2025-05-28 12:55:40 694209 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Customer | configs: system callback enable/disable      
+2025-05-28 12:55:40 694394 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Customer |     = false     
+2025-05-28 12:55:40 694503 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Customer | configs: customer callback enable/disable     
+2025-05-28 12:55:40 694672 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Customer |     = false     
+2025-05-28 12:55:40 694772 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Customer | configs: default routepath     
+2025-05-28 12:55:40 694873 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Customer |     = wq     
+2025-05-28 12:55:40 694944 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Customer | configs: bypass.csocheck     
+2025-05-28 12:55:40 695057 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Customer |     = true     
+2025-05-28 12:55:40 695142 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Customer | configs: vastart     
+2025-05-28 12:55:40 695209 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Customer |     = start     
+2025-05-28 12:55:40 695269 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Customer | configs: enable sessionQueue     
+2025-05-28 12:55:40 695392 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Customer |     = false     
+2025-05-28 12:55:40 697312 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.LockFileHandler | CreateAndLockFile: Lock file path = /tmp/tcommserver_dev.lock     
+2025-05-28 12:55:40 697721 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.LockFileHandler | CreateAndLockFile: Lock file created and locked successfully     
+2025-05-28 12:55:40 699378 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | configs: listeners     
+2025-05-28 12:55:40 711244 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.Server | LISTENER : ${"Type":"websocket","Port":"22556","User":"customer","IsSecure":"false","ClientName":null,"Cert":"","CertPassword":""}     
+2025-05-28 12:55:40 755387 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.Server | LISTENER : ${"Type":"tcp","Port":"2324","User":"customer","IsSecure":"false","ClientName":null,"Cert":"","CertPassword":""}     
+2025-05-28 12:55:40 756017 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.Server | LISTENER : ${"Type":"tcp","Port":"50000","User":"syncqueue","IsSecure":null,"ClientName":null,"Cert":null,"CertPassword":null}     
+2025-05-28 12:55:40 756342 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.Server | LISTENER : ${"Type":"tcp","Port":"2334","User":"agent","IsSecure":"false","ClientName":null,"Cert":null,"CertPassword":null}     
+2025-05-28 12:55:40 756583 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.Server | LISTENER : ${"Type":"websocket","Port":"11011","User":"monitor","IsSecure":null,"ClientName":null,"Cert":null,"CertPassword":null}     
+2025-05-28 12:55:40 757646 |(3d08775eec07)| DEBUG   |[1  ]| TpmsInterconnect.Server | Manager instance is null     
+2025-05-28 12:55:40 762944 |(3d08775eec07)| DEBUG   |[1  ]| TpmsInterconnect.TcpServer | Listening Started Successfully     
+2025-05-28 12:55:40 763270 |(3d08775eec07)| DEBUG   |[1  ]| TpmsInterconnect.TcpServer | Listening Started Successfully     
+2025-05-28 12:55:40 764003 |(3d08775eec07)| INFO    |[13 ]| TpmsInterconnect.TcpServer | Waiting for a client     
+2025-05-28 12:55:40 764285 |(3d08775eec07)| INFO    |[14 ]| TpmsInterconnect.TcpServer | Waiting for a client     
+2025-05-28 12:55:40 764293 |(3d08775eec07)| DEBUG   |[1  ]| TpmsInterconnect.TcpServer | Listening Started Successfully     
+2025-05-28 12:55:40 764805 |(3d08775eec07)| INFO    |[15 ]| TpmsInterconnect.TcpServer | Waiting for a client     
+2025-05-28 12:55:40 766371 |(3d08775eec07)| DEBUG   |[1  ]| TpmsInterconnect.Server | New state =false     
+2025-05-28 12:55:40 768402 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.Server | Start() : Health check address = http://172.31.73.181:2244/health/TCOMMdev-0A-59-07-AE-2244/688075/     
+2025-05-28 12:55:40 769282 |(3d08775eec07)| DEBUG   |[1  ]| TpmsInterconnect.HttpHealthListener | Initialize: URL set to http://+:2244/health/TCOMMdev-0A-59-07-AE-2244/688075/     
+2025-05-28 12:55:40 770686 |(3d08775eec07)| INFO    |[1  ]| TpmsInterconnect.HttpHealthListener | Start: Health check listening started successfully - http://+:2244/health/TCOMMdev-0A-59-07-AE-2244/688075/     
+2025-05-28 12:55:41 246253 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | Start() : Address list published successfully     
+2025-05-28 12:55:41 246369 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Server | Chat server started successfully     
+2025-05-28 12:55:41 576040 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Worker | StartAsync: Service starting     
+2025-05-28 12:55:41 577452 |(3d08775eec07)| WARN    |[1  ]| MessageDistributor.MessageDistributor | Third Party Plugin Configurations not properly configured or Service provider is null. due to that disabling plugin service     
+2025-05-28 12:55:41 580086 |(3d08775eec07)| WARN    |[1  ]| ExternalMessageDistributor.Services.WebSocketMessagingService | ValidateMMMSettings: MMM setting is not enabled     
+2025-05-28 12:55:41 580739 |(3d08775eec07)| DEBUG   |[1  ]| MessageDistributor.MessageDistributor | [MessageDistributor] Message Distributor started     
+2025-05-28 12:55:41 580996 |(3d08775eec07)| DEBUG   |[1  ]| TextchatServer.MessageDistributeInitializer | [MessageDistributeInitializer] Message Distributor started     
+2025-05-28 12:55:41 581104 |(3d08775eec07)| INFO    |[1  ]| TextchatServer.Worker | StartAsync: Service started successfully     
+2025-05-28 12:55:42 166466 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| Tetherfi.Core.ConfigLoader.ConfigLoader | {"productName":"commserver","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","file":"TextchatServer.dll","startedOn":"28-May-2025 12:55:35","instanceId":"1","additionalDetails":{"fileVersion":[{"file":"libsip.dll","path":"/tetherfi/tetherfihome/commserver/libsip.dll","fileVersion":null,"productVersion":null,"createdOn":"28-Mar-2025 11:18:00","updatedOn":"28-Mar-2025 11:18:00","sizeInKbs":583},{"file":"ChatSessionReportHandler.dll","path":"/tetherfi/tetherfihome/commserver/ChatSessionReportHandler.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:53","updatedOn":"28-May-2025 12:49:53","sizeInKbs":24},{"file":"CommLib.dll","path":"/tetherfi/tetherfihome/commserver/CommLib.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:51","updatedOn":"28-May-2025 12:49:51","sizeInKbs":53},{"file":"ConfigurationHandler.dll","path":"/tetherfi/tetherfihome/commserver/ConfigurationHandler.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:45","updatedOn":"28-May-2025 12:49:45","sizeInKbs":25},{"file":"ConfigurationProvider.dll","path":"/tetherfi/tetherfihome/commserver/ConfigurationProvider.dll","fileVersion":"1.3.08.05","productVersion":"1.3.8.5","createdOn":"28-Mar-2025 11:18:00","updatedOn":"28-Mar-2025 11:18:00","sizeInKbs":15},{"file":"CryptoHandler.dll","path":"/tetherfi/tetherfihome/commserver/CryptoHandler.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:47","updatedOn":"28-May-2025 12:49:47","sizeInKbs":5},{"file":"DataModel.dll","path":"/tetherfi/tetherfihome/commserver/DataModel.dll","fileVersion":"5.0.11.25","productVersion":"5.0.11.25","createdOn":"25-Nov-2021 09:46:36","updatedOn":"25-Nov-2021 09:46:36","sizeInKbs":316},{"file":"DataModels.dll","path":"/tetherfi/tetherfihome/commserver/DataModels.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:10","updatedOn":"28-May-2025 12:49:10","sizeInKbs":10},{"file":"Email_Models.dll","path":"/tetherfi/tetherfihome/commserver/Email_Models.dll","fileVersion":"5.0.11.25","productVersion":"5.0.11.25","createdOn":"25-Nov-2021 06:39:14","updatedOn":"25-Nov-2021 06:39:14","sizeInKbs":38},{"file":"ExternalMessageDistributor.dll","path":"/tetherfi/tetherfihome/commserver/ExternalMessageDistributor.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:48","updatedOn":"28-May-2025 12:49:48","sizeInKbs":18},{"file":"ExternalServiceConnector.dll","path":"/tetherfi/tetherfihome/commserver/ExternalServiceConnector.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:54","updatedOn":"28-May-2025 12:49:54","sizeInKbs":108},{"file":"InBuiltAgent.dll","path":"/tetherfi/tetherfihome/commserver/InBuiltAgent.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:53","updatedOn":"28-May-2025 12:49:53","sizeInKbs":10},{"file":"Logger.dll","path":"/tetherfi/tetherfihome/commserver/Logger.dll","fileVersion":"2.0.04.25","productVersion":"2.0.4.25","createdOn":"28-Mar-2025 11:18:00","updatedOn":"28-Mar-2025 11:18:00","sizeInKbs":7},{"file":"MessageDistributor.dll","path":"/tetherfi/tetherfihome/commserver/MessageDistributor.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:55","updatedOn":"28-May-2025 12:49:55","sizeInKbs":15},{"file":"Microsoft.Bcl.Cryptography.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.Bcl.Cryptography.dll","fileVersion":"9.0.425.16305","productVersion":"9.0.4+f57e6dc747158ab7ade4e62a75a6750d16b771e8","createdOn":"13-Mar-2025 10:08:30","updatedOn":"13-Mar-2025 10:08:30","sizeInKbs":93},{"file":"Microsoft.Bcl.TimeProvider.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.Bcl.TimeProvider.dll","fileVersion":"8.0.123.58001","productVersion":"8.0.1+bf5e279d9239bfef5bb1b8d6212f1b971c434606","createdOn":"30-Nov-2023 08:24:58","updatedOn":"30-Nov-2023 08:24:58","sizeInKbs":17},{"file":"Microsoft.Extensions.Configuration.Binder.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.Extensions.Configuration.Binder.dll","fileVersion":"8.0.724.31311","productVersion":"8.0.7+2aade6beb02ea367fd97c4070a4198802fe61c03","createdOn":"13-Jun-2024 07:35:38","updatedOn":"13-Jun-2024 07:35:38","sizeInKbs":41},{"file":"Microsoft.Extensions.DependencyInjection.Abstractions.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.Extensions.DependencyInjection.Abstractions.dll","fileVersion":"8.0.324.11423","productVersion":"8.0.3+9f4b1f5d664afdfc80e1508ab7ed099dff210fbd","createdOn":"14-Feb-2024 11:51:40","updatedOn":"14-Feb-2024 11:51:40","sizeInKbs":62},{"file":"Microsoft.Extensions.DependencyModel.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.Extensions.DependencyModel.dll","fileVersion":"8.0.23.53103","productVersion":"8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14","createdOn":"31-Oct-2023 02:59:24","updatedOn":"31-Oct-2023 02:59:24","sizeInKbs":77},{"file":"Microsoft.Extensions.Hosting.WindowsServices.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.Extensions.Hosting.WindowsServices.dll","fileVersion":"8.0.23.53103","productVersion":"8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14","createdOn":"31-Oct-2023 02:59:46","updatedOn":"31-Oct-2023 02:59:46","sizeInKbs":29},{"file":"Microsoft.Extensions.ObjectPool.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.Extensions.ObjectPool.dll","fileVersion":"8.0.1024.46804","productVersion":"8.0.10+c2a442982e736e17ae6bcadbfd8ccba278ee1be6","createdOn":"18-Sep-2024 06:38:02","updatedOn":"18-Sep-2024 06:38:02","sizeInKbs":22},{"file":"Microsoft.IdentityModel.Abstractions.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.IdentityModel.Abstractions.dll","fileVersion":"8.2.0.51101","productVersion":"8.2.0+e43dc2d5a4a3ddbfc721a0681fbc154d4848d0ae","createdOn":"01-Nov-2024 11:45:56","updatedOn":"01-Nov-2024 11:45:56","sizeInKbs":19},{"file":"Microsoft.IdentityModel.Logging.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.IdentityModel.Logging.dll","fileVersion":"8.2.0.51101","productVersion":"8.2.0+e43dc2d5a4a3ddbfc721a0681fbc154d4848d0ae","createdOn":"01-Nov-2024 11:46:04","updatedOn":"01-Nov-2024 11:46:04","sizeInKbs":36},{"file":"Microsoft.IdentityModel.Protocols.WsTrust.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.IdentityModel.Protocols.WsTrust.dll","fileVersion":"6.8.0.11018","productVersion":"6.8.0.11018233357.193025b5d644cfd844193ee023ea100a1eb3f2e3","createdOn":"18-Oct-2020 11:40:02","updatedOn":"18-Oct-2020 11:40:02","sizeInKbs":94},{"file":"Microsoft.IdentityModel.Tokens.Saml.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.IdentityModel.Tokens.Saml.dll","fileVersion":"8.2.0.51101","productVersion":"8.2.0+e43dc2d5a4a3ddbfc721a0681fbc154d4848d0ae","createdOn":"01-Nov-2024 11:46:46","updatedOn":"01-Nov-2024 11:46:46","sizeInKbs":197},{"file":"Microsoft.IdentityModel.Tokens.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.IdentityModel.Tokens.dll","fileVersion":"8.2.0.51101","productVersion":"8.2.0+e43dc2d5a4a3ddbfc721a0681fbc154d4848d0ae","createdOn":"01-Nov-2024 11:46:26","updatedOn":"01-Nov-2024 11:46:26","sizeInKbs":342},{"file":"Microsoft.IdentityModel.Xml.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.IdentityModel.Xml.dll","fileVersion":"8.2.0.51101","productVersion":"8.2.0+e43dc2d5a4a3ddbfc721a0681fbc154d4848d0ae","createdOn":"01-Nov-2024 11:46:16","updatedOn":"01-Nov-2024 11:46:16","sizeInKbs":75},{"file":"Microsoft.OpenApi.dll","path":"/tetherfi/tetherfihome/commserver/Microsoft.OpenApi.dll","fileVersion":"1.6.14.0","productVersion":"1.6.14+ec6a1d47550199f0cc05fa25a49ce8ce135f783d","createdOn":"06-Mar-2024 04:00:56","updatedOn":"06-Mar-2024 04:00:56","sizeInKbs":227},{"file":"Newtonsoft.Json.Bson.dll","path":"/tetherfi/tetherfihome/commserver/Newtonsoft.Json.Bson.dll","fileVersion":"1.0.1.20722","productVersion":"1.0.0.0","createdOn":"22-Mar-2017 11:01:20","updatedOn":"22-Mar-2017 11:01:20","sizeInKbs":88},{"file":"Newtonsoft.Json.dll","path":"/tetherfi/tetherfihome/commserver/Newtonsoft.Json.dll","fileVersion":"13.0.3.27908","productVersion":"13.0.3+0a2e291c0d9c0c7675d445703e51750363a549ef","createdOn":"08-Mar-2023 07:09:54","updatedOn":"08-Mar-2023 07:09:54","sizeInKbs":695},{"file":"RConfigProvider.dll","path":"/tetherfi/tetherfihome/commserver/RConfigProvider.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:10","updatedOn":"28-May-2025 12:49:10","sizeInKbs":18},{"file":"RestSharp.dll","path":"/tetherfi/tetherfihome/commserver/RestSharp.dll","fileVersion":"106.15.0","productVersion":"106.15.0+ca15b2599d9e85efd9ac43c7112188b9b0cc67a0","createdOn":"08-Dec-2021 02:02:42","updatedOn":"08-Dec-2021 02:02:42","sizeInKbs":186},{"file":"Serilog.Enrichers.Environment.dll","path":"/tetherfi/tetherfihome/commserver/Serilog.Enrichers.Environment.dll","fileVersion":"3.0.0.0","productVersion":"3.0.0-main-c7801e6+c7801e662cc69ba49814d38389f1c06cdd3e539f","createdOn":"09-Jun-2024 10:31:48","updatedOn":"09-Jun-2024 10:31:48","sizeInKbs":7},{"file":"Serilog.Enrichers.Thread.dll","path":"/tetherfi/tetherfihome/commserver/Serilog.Enrichers.Thread.dll","fileVersion":"3.1.0.0","productVersion":"3.1.0","createdOn":"02-May-2019 11:41:32","updatedOn":"02-May-2019 11:41:32","sizeInKbs":6},{"file":"Serilog.Expressions.dll","path":"/tetherfi/tetherfihome/commserver/Serilog.Expressions.dll","fileVersion":"5.0.0.0","productVersion":"5.0.0-main-a8f4a9d+a8f4a9ddc63cafba0d33fc52243ff4c203a1d9d1","createdOn":"13-Jun-2024 02:01:44","updatedOn":"13-Jun-2024 02:01:44","sizeInKbs":196},{"file":"Serilog.Settings.Configuration.dll","path":"/tetherfi/tetherfihome/commserver/Serilog.Settings.Configuration.dll","fileVersion":"8.0.1.0","productVersion":"8.0.1-main-0ab5073+0ab50737cc46ec7d359d51e387d8fd1e937082dc","createdOn":"06-Jun-2024 09:07:08","updatedOn":"06-Jun-2024 09:07:08","sizeInKbs":74},{"file":"Serilog.Sinks.Console.dll","path":"/tetherfi/tetherfihome/commserver/Serilog.Sinks.Console.dll","fileVersion":"6.0.0.0","productVersion":"6.0.0-main-4c9a7b6+4c9a7b6946dfd2d7f07a792c40bb3d46af835ee9","createdOn":"09-Jun-2024 10:13:26","updatedOn":"09-Jun-2024 10:13:26","sizeInKbs":37},{"file":"Serilog.Sinks.File.dll","path":"/tetherfi/tetherfihome/commserver/Serilog.Sinks.File.dll","fileVersion":"5.0.0.0","productVersion":"5.0.0-main-7eb21bd+7eb21bd4d35d0b8b7d13e6a15851c9903ea9a468","createdOn":"25-Jun-2021 08:00:48","updatedOn":"25-Jun-2021 08:00:48","sizeInKbs":30},{"file":"Serilog.Sinks.Network.dll","path":"/tetherfi/tetherfihome/commserver/Serilog.Sinks.Network.dll","fileVersion":"2.0.2.68","productVersion":"2.0.2.68","createdOn":"12-Jun-2019 06:17:18","updatedOn":"12-Jun-2019 06:17:18","sizeInKbs":19},{"file":"Serilog.Sinks.PersistentFile.dll","path":"/tetherfi/tetherfihome/commserver/Serilog.Sinks.PersistentFile.dll","fileVersion":"2.3.0.0","productVersion":"4.1.0+7d893a109aa50309149e9138a7215dc49d309012","createdOn":"11-Mar-2024 06:44:28","updatedOn":"11-Mar-2024 06:44:28","sizeInKbs":30},{"file":"Serilog.dll","path":"/tetherfi/tetherfihome/commserver/Serilog.dll","fileVersion":"4.0.0.0","productVersion":"4.0.0-main-573a6287+573a62874260d7a1708f620076b5469f69bc79b3","createdOn":"01-Jun-2024 06:19:40","updatedOn":"01-Jun-2024 06:19:40","sizeInKbs":149},{"file":"ServiceDiscoveryManager.dll","path":"/tetherfi/tetherfihome/commserver/ServiceDiscoveryManager.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:48","updatedOn":"28-May-2025 12:49:48","sizeInKbs":29},{"file":"SessionInfoHandler.dll","path":"/tetherfi/tetherfihome/commserver/SessionInfoHandler.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:58","updatedOn":"28-May-2025 12:49:58","sizeInKbs":68},{"file":"SipLibrary.dll","path":"/tetherfi/tetherfihome/commserver/SipLibrary.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:52","updatedOn":"28-May-2025 12:49:52","sizeInKbs":22},{"file":"Swashbuckle.AspNetCore.Swagger.dll","path":"/tetherfi/tetherfihome/commserver/Swashbuckle.AspNetCore.Swagger.dll","fileVersion":"6.7.3.685","productVersion":"6.7.3+604133c0ff4f59ec34777e63a6d4e650de9c739f","createdOn":"26-Aug-2024 08:31:46","updatedOn":"26-Aug-2024 08:31:46","sizeInKbs":17},{"file":"Swashbuckle.AspNetCore.SwaggerGen.dll","path":"/tetherfi/tetherfihome/commserver/Swashbuckle.AspNetCore.SwaggerGen.dll","fileVersion":"6.7.3.685","productVersion":"6.7.3+604133c0ff4f59ec34777e63a6d4e650de9c739f","createdOn":"26-Aug-2024 08:31:52","updatedOn":"26-Aug-2024 08:31:52","sizeInKbs":139},{"file":"Swashbuckle.AspNetCore.SwaggerUI.dll","path":"/tetherfi/tetherfihome/commserver/Swashbuckle.AspNetCore.SwaggerUI.dll","fileVersion":"6.7.3.685","productVersion":"6.7.3+604133c0ff4f59ec34777e63a6d4e650de9c739f","createdOn":"26-Aug-2024 08:31:54","updatedOn":"26-Aug-2024 08:31:54","sizeInKbs":2220},{"file":"System.Configuration.ConfigurationManager.dll","path":"/tetherfi/tetherfihome/commserver/System.Configuration.ConfigurationManager.dll","fileVersion":"8.0.23.53103","productVersion":"8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14","createdOn":"31-Oct-2023 02:59:08","updatedOn":"31-Oct-2023 02:59:08","sizeInKbs":432},{"file":"System.Data.SqlClient.dll","path":"/tetherfi/tetherfihome/commserver/System.Data.SqlClient.dll","fileVersion":"4.700.23.52603","productVersion":"3.1.39+fa27c9f378dde822f9ebe5af1f0dfd22be1778b1","createdOn":"26-Oct-2023 11:27:26","updatedOn":"26-Oct-2023 11:27:26","sizeInKbs":262},{"file":"System.Diagnostics.PerformanceCounter.dll","path":"/tetherfi/tetherfihome/commserver/System.Diagnostics.PerformanceCounter.dll","fileVersion":"8.0.23.53103","productVersion":"8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14","createdOn":"31-Oct-2023 03:05:38","updatedOn":"31-Oct-2023 03:05:38","sizeInKbs":50},{"file":"System.Formats.Asn1.dll","path":"/tetherfi/tetherfihome/commserver/System.Formats.Asn1.dll","fileVersion":"9.0.425.16305","productVersion":"9.0.4+f57e6dc747158ab7ade4e62a75a6750d16b771e8","createdOn":"13-Mar-2025 10:08:26","updatedOn":"13-Mar-2025 10:08:26","sizeInKbs":93},{"file":"System.IO.Pipelines.dll","path":"/tetherfi/tetherfihome/commserver/System.IO.Pipelines.dll","fileVersion":"9.0.425.16305","productVersion":"9.0.4+f57e6dc747158ab7ade4e62a75a6750d16b771e8","createdOn":"13-Mar-2025 10:08:50","updatedOn":"13-Mar-2025 10:08:50","sizeInKbs":75},{"file":"System.Net.Http.Formatting.dll","path":"/tetherfi/tetherfihome/commserver/System.Net.Http.Formatting.dll","fileVersion":"5.2.61129.10","productVersion":"5.2.9-61139 (2fa23f210cef96eed816b0f8c1361c745bd9450c)","createdOn":"27-May-2022 11:39:42","updatedOn":"27-May-2022 11:39:42","sizeInKbs":175},{"file":"System.Net.Http.WinHttpHandler.dll","path":"/tetherfi/tetherfihome/commserver/System.Net.Http.WinHttpHandler.dll","fileVersion":"4.6.27514.02","productVersion":"4.6.27514.02 @BuiltBy: dlab14-DDVSOWINAGE049 @Branch: release/2.1-MSRC @SrcCode: https://github.com/dotnet/corefx/tree/4e6e4a54db5cb292b4326482c61ffa98e25b79aa","createdOn":"29-May-2019 05:21:38","updatedOn":"29-May-2019 05:21:38","sizeInKbs":32},{"file":"System.Security.Cryptography.Pkcs.dll","path":"/tetherfi/tetherfihome/commserver/System.Security.Cryptography.Pkcs.dll","fileVersion":"9.0.425.16305","productVersion":"9.0.4+f57e6dc747158ab7ade4e62a75a6750d16b771e8","createdOn":"13-Mar-2025 10:09:06","updatedOn":"13-Mar-2025 10:09:06","sizeInKbs":258},{"file":"System.Security.Cryptography.ProtectedData.dll","path":"/tetherfi/tetherfihome/commserver/System.Security.Cryptography.ProtectedData.dll","fileVersion":"8.0.23.53103","productVersion":"8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14","createdOn":"31-Oct-2023 02:59:04","updatedOn":"31-Oct-2023 02:59:04","sizeInKbs":35},{"file":"System.Security.Cryptography.Xml.dll","path":"/tetherfi/tetherfihome/commserver/System.Security.Cryptography.Xml.dll","fileVersion":"8.0.1024.46610","productVersion":"8.0.10+81cabf2857a01351e5ab578947c7403a5b128ad1","createdOn":"16-Sep-2024 11:09:58","updatedOn":"16-Sep-2024 11:09:58","sizeInKbs":193},{"file":"System.ServiceModel.Duplex.dll","path":"/tetherfi/tetherfihome/commserver/System.ServiceModel.Duplex.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2-rtm.25154.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:18","updatedOn":"04-Mar-2025 09:42:18","sizeInKbs":15},{"file":"System.ServiceModel.Federation.dll","path":"/tetherfi/tetherfihome/commserver/System.ServiceModel.Federation.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":74},{"file":"System.ServiceModel.Http.dll","path":"/tetherfi/tetherfihome/commserver/System.ServiceModel.Http.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":199},{"file":"System.ServiceModel.NetFramingBase.dll","path":"/tetherfi/tetherfihome/commserver/System.ServiceModel.NetFramingBase.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:26","updatedOn":"04-Mar-2025 09:42:26","sizeInKbs":193},{"file":"System.ServiceModel.NetTcp.dll","path":"/tetherfi/tetherfihome/commserver/System.ServiceModel.NetTcp.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":61},{"file":"System.ServiceModel.Primitives.dll","path":"/tetherfi/tetherfihome/commserver/System.ServiceModel.Primitives.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":2333},{"file":"System.ServiceModel.Security.dll","path":"/tetherfi/tetherfihome/commserver/System.ServiceModel.Security.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2-rtm.25154.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:12","updatedOn":"04-Mar-2025 09:42:12","sizeInKbs":16},{"file":"System.ServiceModel.dll","path":"/tetherfi/tetherfihome/commserver/System.ServiceModel.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2-rtm.25154.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":24},{"file":"System.ServiceProcess.ServiceController.dll","path":"/tetherfi/tetherfihome/commserver/System.ServiceProcess.ServiceController.dll","fileVersion":"8.0.23.53103","productVersion":"8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14","createdOn":"31-Oct-2023 02:59:34","updatedOn":"31-Oct-2023 02:59:34","sizeInKbs":32},{"file":"System.Text.Encodings.Web.dll","path":"/tetherfi/tetherfihome/commserver/System.Text.Encodings.Web.dll","fileVersion":"9.0.425.16305","productVersion":"9.0.4+f57e6dc747158ab7ade4e62a75a6750d16b771e8","createdOn":"13-Mar-2025 10:08:02","updatedOn":"13-Mar-2025 10:08:02","sizeInKbs":69},{"file":"System.Text.Json.dll","path":"/tetherfi/tetherfihome/commserver/System.Text.Json.dll","fileVersion":"9.0.425.16305","productVersion":"9.0.4+f57e6dc747158ab7ade4e62a75a6750d16b771e8","createdOn":"13-Mar-2025 10:16:10","updatedOn":"13-Mar-2025 10:16:10","sizeInKbs":628},{"file":"System.Threading.AccessControl.dll","path":"/tetherfi/tetherfihome/commserver/System.Threading.AccessControl.dll","fileVersion":"8.0.23.53103","productVersion":"8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14","createdOn":"31-Oct-2023 03:10:04","updatedOn":"31-Oct-2023 03:10:04","sizeInKbs":31},{"file":"System.Web.Services.Description.dll","path":"/tetherfi/tetherfihome/commserver/System.Web.Services.Description.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":375},{"file":"Tetherfi.Core.ConfigLoader.dll","path":"/tetherfi/tetherfihome/commserver/Tetherfi.Core.ConfigLoader.dll","fileVersion":"2.4.0","productVersion":"2.4.0","createdOn":"10-Apr-2025 10:24:16","updatedOn":"10-Apr-2025 10:24:16","sizeInKbs":51},{"file":"Tetherfi.Core.ConfigurationProvider.dll","path":"/tetherfi/tetherfihome/commserver/Tetherfi.Core.ConfigurationProvider.dll","fileVersion":"1.5.1","productVersion":"1.5.1+84abb3b3aed201dafa447399583d8554588052ef","createdOn":"22-Feb-2024 10:01:42","updatedOn":"22-Feb-2024 10:01:42","sizeInKbs":35},{"file":"Tetherfi.Core.Connector.Dialer.dll","path":"/tetherfi/tetherfihome/commserver/Tetherfi.Core.Connector.Dialer.dll","fileVersion":"2.3.0","productVersion":"2.3.0","createdOn":"04-Sep-2024 04:54:06","updatedOn":"04-Sep-2024 04:54:06","sizeInKbs":32},{"file":"Tetherfi.Core.Connector.LicenseServer.dll","path":"/tetherfi/tetherfihome/commserver/Tetherfi.Core.Connector.LicenseServer.dll","fileVersion":"2.4.0","productVersion":"2.4.0","createdOn":"16-Dec-2024 05:17:34","updatedOn":"16-Dec-2024 05:17:34","sizeInKbs":36},{"file":"Tetherfi.Core.Connector.TMAC.dll","path":"/tetherfi/tetherfihome/commserver/Tetherfi.Core.Connector.TMAC.dll","fileVersion":"2.4.0","productVersion":"2.4.0","createdOn":"04-Sep-2024 04:59:52","updatedOn":"04-Sep-2024 04:59:52","sizeInKbs":317},{"file":"Tetherfi.Core.Connector.WorkQueue.dll","path":"/tetherfi/tetherfihome/commserver/Tetherfi.Core.Connector.WorkQueue.dll","fileVersion":"3.0.0.0","productVersion":"3.0.0","createdOn":"05-May-2025 01:18:30","updatedOn":"05-May-2025 01:18:30","sizeInKbs":136},{"file":"Tetherfi.Core.Logger.dll","path":"/tetherfi/tetherfihome/commserver/Tetherfi.Core.Logger.dll","fileVersion":"2.1.0","productVersion":"2.1.0","createdOn":"11-Apr-2025 08:56:18","updatedOn":"11-Apr-2025 08:56:18","sizeInKbs":16},{"file":"Tetherfi.Core.RestWrapper.dll","path":"/tetherfi/tetherfihome/commserver/Tetherfi.Core.RestWrapper.dll","fileVersion":"1.0.1","productVersion":"1.0.1+3dd0bf880c2d5b0024114d6821694f8b83b12d96","createdOn":"31-Jul-2024 02:25:32","updatedOn":"31-Jul-2024 02:25:32","sizeInKbs":20},{"file":"Tetherfi.Core.dll","path":"/tetherfi/tetherfihome/commserver/Tetherfi.Core.dll","fileVersion":"3.3.0","productVersion":"3.3.0","createdOn":"10-Apr-2025 10:15:40","updatedOn":"10-Apr-2025 10:15:40","sizeInKbs":46},{"file":"Tetherfi.Core.WebSockLib.dll","path":"/tetherfi/tetherfihome/commserver/Tetherfi.Core.WebSockLib.dll","fileVersion":"1.3.5.5","productVersion":"1.3.05.05","createdOn":"05-May-2023 10:47:38","updatedOn":"05-May-2023 10:47:38","sizeInKbs":49},{"file":"TetherfiServiceDiscovery.dll","path":"/tetherfi/tetherfihome/commserver/TetherfiServiceDiscovery.dll","fileVersion":"2.1.1","productVersion":"2.1.1","createdOn":"09-Oct-2024 11:02:06","updatedOn":"09-Oct-2024 11:02:06","sizeInKbs":80},{"file":"Tetherfi_SipConfProcessManager.dll","path":"/tetherfi/tetherfihome/commserver/Tetherfi_SipConfProcessManager.dll","fileVersion":"3.1.01.25","productVersion":"3.1.1.25","createdOn":"28-Mar-2025 11:18:00","updatedOn":"28-Mar-2025 11:18:00","sizeInKbs":14},{"file":"TextChatServer.ThirdParty.dll","path":"/tetherfi/tetherfihome/commserver/TextChatServer.ThirdParty.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:49","updatedOn":"28-May-2025 12:49:49","sizeInKbs":12},{"file":"TextChatServer.ThirdPartyPlugin.dll","path":"/tetherfi/tetherfihome/commserver/TextChatServer.ThirdPartyPlugin.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:10","updatedOn":"28-May-2025 12:49:10","sizeInKbs":7},{"file":"TextChatServer.ThirdPartyPluginHandler.dll","path":"/tetherfi/tetherfihome/commserver/TextChatServer.ThirdPartyPluginHandler.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:45","updatedOn":"28-May-2025 12:49:45","sizeInKbs":21},{"file":"TextchatServer.dll","path":"/tetherfi/tetherfihome/commserver/TextchatServer.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:50:01","updatedOn":"28-May-2025 12:50:01","sizeInKbs":175},{"file":"WebApiServiceHandler.dll","path":"/tetherfi/tetherfihome/commserver/WebApiServiceHandler.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:50","updatedOn":"28-May-2025 12:49:50","sizeInKbs":25},{"file":"WebSockLib.dll","path":"/tetherfi/tetherfihome/commserver/WebSockLib.dll","fileVersion":"1.3.08.05","productVersion":"1.3.8.5","createdOn":"28-Mar-2025 11:18:00","updatedOn":"28-Mar-2025 11:18:00","sizeInKbs":47},{"file":"Webhook.dll","path":"/tetherfi/tetherfihome/commserver/Webhook.dll","fileVersion":"4.3.0-test.1","productVersion":"4.3.0-test.1","createdOn":"28-May-2025 12:49:57","updatedOn":"28-May-2025 12:49:57","sizeInKbs":51},{"file":"log4net.dll","path":"/tetherfi/tetherfihome/commserver/log4net.dll","fileVersion":"2.0.12.0","productVersion":"2.0.12.0-.NET Standard 2.0","createdOn":"19-Oct-2020 06:40:12","updatedOn":"19-Oct-2020 06:40:12","sizeInKbs":252},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/cs/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":19},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/cs/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":33},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/cs/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":30},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/cs/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":20},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/cs/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":204},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/cs/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":18},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/de/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":20},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/de/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":34},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/de/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":32},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/de/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":20},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/de/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":218},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/de/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":19},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/es/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":19},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/es/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":33},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/es/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":31},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/es/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":20},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/es/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":210},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/es/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":19},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/fr/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":19},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/fr/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":34},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/fr/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":31},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/fr/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":20},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/fr/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":217},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/fr/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":19},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/it/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":19},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/it/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":33},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/it/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":31},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/it/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":20},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/it/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":212},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/it/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":19},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/ja/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":20},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/ja/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":36},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/ja/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":34},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/ja/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":21},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/ja/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":246},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/ja/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":20},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/ko/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":19},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/ko/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":34},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/ko/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":32},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/ko/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":20},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/ko/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":217},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/ko/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":19},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/pl/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":19},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/pl/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":34},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/pl/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":31},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/pl/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":20},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/pl/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":217},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/pl/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":19},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/pt-BR/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":19},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/pt-BR/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":33},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/pt-BR/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":31},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/pt-BR/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":20},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/pt-BR/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":208},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/pt-BR/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":19},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/ru/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":21},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/ru/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":40},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/ru/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":38},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/ru/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":23},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/ru/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":286},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/ru/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":20},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/tr/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":19},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/tr/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":32},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/tr/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":30},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/tr/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":20},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/tr/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":203},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/tr/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":19},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/zh-Hans/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":19},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/zh-Hans/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":30},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/zh-Hans/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":28},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/zh-Hans/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":19},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/zh-Hans/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":181},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/zh-Hans/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":18},{"file":"System.ServiceModel.Federation.resources.dll","path":"/tetherfi/tetherfihome/commserver/zh-Hant/System.ServiceModel.Federation.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:20","updatedOn":"04-Mar-2025 09:42:20","sizeInKbs":19},{"file":"System.ServiceModel.Http.resources.dll","path":"/tetherfi/tetherfihome/commserver/zh-Hant/System.ServiceModel.Http.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":30},{"file":"System.ServiceModel.NetFramingBase.resources.dll","path":"/tetherfi/tetherfihome/commserver/zh-Hant/System.ServiceModel.NetFramingBase.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:28","updatedOn":"04-Mar-2025 09:42:28","sizeInKbs":28},{"file":"System.ServiceModel.NetTcp.resources.dll","path":"/tetherfi/tetherfihome/commserver/zh-Hant/System.ServiceModel.NetTcp.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:30","updatedOn":"04-Mar-2025 09:42:30","sizeInKbs":19},{"file":"System.ServiceModel.Primitives.resources.dll","path":"/tetherfi/tetherfihome/commserver/zh-Hant/System.ServiceModel.Primitives.resources.dll","fileVersion":"8.100.225.15402","productVersion":"8.1.2+a47960f931a813617a061adc2ba9cabe1816a551","createdOn":"04-Mar-2025 09:42:24","updatedOn":"04-Mar-2025 09:42:24","sizeInKbs":182},{"file":"System.Web.Services.Description.resources.dll","path":"/tetherfi/tetherfihome/commserver/zh-Hant/System.Web.Services.Description.resources.dll","fileVersion":"8.0.23.60704","productVersion":"8.0.0+852a6098b270771f21d13824877fce59d3279046","createdOn":"08-Dec-2023 07:31:16","updatedOn":"08-Dec-2023 07:31:16","sizeInKbs":18},{"file":"sni.dll","path":"/tetherfi/tetherfihome/commserver/runtimes/win-arm64/native/sni.dll","fileVersion":null,"productVersion":null,"createdOn":"12-Jul-2017 11:24:24","updatedOn":"12-Jul-2017 11:24:24","sizeInKbs":170},{"file":"sni.dll","path":"/tetherfi/tetherfihome/commserver/runtimes/win-x64/native/sni.dll","fileVersion":null,"productVersion":null,"createdOn":"12-Jul-2017 11:24:22","updatedOn":"12-Jul-2017 11:24:22","sizeInKbs":156},{"file":"sni.dll","path":"/tetherfi/tetherfihome/commserver/runtimes/win-x86/native/sni.dll","fileVersion":null,"productVersion":null,"createdOn":"12-Jul-2017 11:24:22","updatedOn":"12-Jul-2017 11:24:22","sizeInKbs":133},{"file":"System.Text.Encodings.Web.dll","path":"/tetherfi/tetherfihome/commserver/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll","fileVersion":"9.0.425.16305","productVersion":"9.0.4+f57e6dc747158ab7ade4e62a75a6750d16b771e8","createdOn":"13-Mar-2025 10:08:14","updatedOn":"13-Mar-2025 10:08:14","sizeInKbs":69},{"file":"System.Data.SqlClient.dll","path":"/tetherfi/tetherfihome/commserver/runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll","fileVersion":"4.700.23.52603","productVersion":"3.1.39+fa27c9f378dde822f9ebe5af1f0dfd22be1778b1","createdOn":"26-Oct-2023 11:34:06","updatedOn":"26-Oct-2023 11:34:06","sizeInKbs":935},{"file":"System.Diagnostics.EventLog.Messages.dll","path":"/tetherfi/tetherfihome/commserver/runtimes/win/lib/net8.0/System.Diagnostics.EventLog.Messages.dll","fileVersion":"8.0.23.53103","productVersion":"8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14","createdOn":"31-Oct-2023 02:59:52","updatedOn":"31-Oct-2023 02:59:52","sizeInKbs":782},{"file":"System.Diagnostics.PerformanceCounter.dll","path":"/tetherfi/tetherfihome/commserver/runtimes/win/lib/net8.0/System.Diagnostics.PerformanceCounter.dll","fileVersion":"8.0.23.53103","productVersion":"8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14","createdOn":"31-Oct-2023 02:59:58","updatedOn":"31-Oct-2023 02:59:58","sizeInKbs":131},{"file":"System.Security.Cryptography.Pkcs.dll","path":"/tetherfi/tetherfihome/commserver/runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll","fileVersion":"9.0.425.16305","productVersion":"9.0.4+f57e6dc747158ab7ade4e62a75a6750d16b771e8","createdOn":"13-Mar-2025 10:09:18","updatedOn":"13-Mar-2025 10:09:18","sizeInKbs":310},{"file":"System.ServiceProcess.ServiceController.dll","path":"/tetherfi/tetherfihome/commserver/runtimes/win/lib/net8.0/System.ServiceProcess.ServiceController.dll","fileVersion":"8.0.23.53103","productVersion":"8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14","createdOn":"31-Oct-2023 03:00:12","updatedOn":"31-Oct-2023 03:00:12","sizeInKbs":85},{"file":"System.Threading.AccessControl.dll","path":"/tetherfi/tetherfihome/commserver/runtimes/win/lib/net8.0/System.Threading.AccessControl.dll","fileVersion":"8.0.23.53103","productVersion":"8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14","createdOn":"31-Oct-2023 02:59:52","updatedOn":"31-Oct-2023 02:59:52","sizeInKbs":50},{"file":"System.Data.SqlClient.dll","path":"/tetherfi/tetherfihome/commserver/runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll","fileVersion":"4.700.23.52603","productVersion":"3.1.39+fa27c9f378dde822f9ebe5af1f0dfd22be1778b1","createdOn":"26-Oct-2023 11:34:10","updatedOn":"26-Oct-2023 11:34:10","sizeInKbs":1002},{"file":"System.Net.Http.WinHttpHandler.dll","path":"/tetherfi/tetherfihome/commserver/runtimes/win/lib/netstandard2.0/System.Net.Http.WinHttpHandler.dll","fileVersion":"4.6.27514.02","productVersion":"4.6.27514.02 @BuiltBy: dlab14-DDVSOWINAGE049 @Branch: release/2.1-MSRC @SrcCode: https://github.com/dotnet/corefx/tree/4e6e4a54db5cb292b4326482c61ffa98e25b79aa","createdOn":"29-May-2019 05:21:38","updatedOn":"29-May-2019 05:21:38","sizeInKbs":128}]}}     
+2025-05-28 12:55:42 195562 |(3d08775eec07)| INFO    |[.NET TP Worker]| TpmsInterconnect.MSWSConnection | {{new}} ws opened, new client connected     
+2025-05-28 12:55:42 197242 |(3d08775eec07)| INFO    |[.NET TP Worker]| TextchatServer.Server | {64040} Monitor {1000} connected     
+2025-05-28 12:55:42 199403 |(3d08775eec07)| INFO    |[.NET TP Worker]| TpmsInterconnect.MSWSConnection | {{new}} Starting HB for WS connection     
+2025-05-28 12:56:35 465969 |(3d08775eec07)| INFO    |[8  ]| RConfigProvider.ConfigStore | In memory configs have been changed, writing file..     
+2025-05-28 12:56:50 287827 |(3d08775eec07)| INFO    |[13 ]| TpmsInterconnect.TcpServer | Client connected handler = 266     
+2025-05-28 12:56:50 289666 |(3d08775eec07)| INFO    |[13 ]| TpmsInterconnect.MSTcpConnection | {sk:266} Connection will Respond to heart-beats     
+2025-05-28 12:56:50 290943 |(3d08775eec07)| INFO    |[13 ]| TpmsInterconnect.TcpServer | Waiting for a client     
+2025-05-28 12:56:50 291893 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | {sk:266} Thread_1 start     
+2025-05-28 12:56:50 295249 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Server | [Customer][sk:266] New user connected     
+2025-05-28 12:56:50 295378 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | {sk:266} Reading Started     
+2025-05-28 12:56:50 296730 |(3d08775eec07)| DEBUG   |[connectivityCheck_63d89f36-0867-45f0-a988-6eef0a1a2d92]| TpmsInterconnect.MSTcpConnection | {sk:266} Thread_connectivityCheck start     
+2025-05-28 12:56:50 299478 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Server | [Customer][sk:266] Session Id : 0
+Msg Type : SessionStart
+msgContent : {"eCustDetails":{"name":"Livechat2 TestApp User","address":"PC","pIntent":"ActiveAI"},"device-info":{"Type":"web","BrowserName":"Chrome","BrowserVersion":"136.0.0.0","OSName":"Windows","OSVersion":"NT 10.0","Platform":"desktop"}}
+msgContentLength : 229
+     
+2025-05-28 12:56:50 299635 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Server | [Customer][sk:266] Customer start message received     
+2025-05-28 12:56:50 300411 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Server | [Customer][sk:266] Check max session count[10]. current session count: 0      
+2025-05-28 12:56:50 301507 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266] {New} User sip Id (2) 3000     
+2025-05-28 12:56:50 301695 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {New} ChatServer session Id (2) dev250528125650_3000     
+2025-05-28 12:56:50 302206 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| SipLibrary.AgentRoute | CreateInstance() : AgentRoute_Default_Impl Object Created     
+2025-05-28 12:56:50 302641 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Server | [Customer][sk:266][dev250528125650_3000] {3000} Customer side MSConnection loggingid= 3000}c_sk:266 connid= 266)     
+2025-05-28 12:56:50 310017 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.SessionInfo | {3000} SipId = 3000     
+2025-05-28 12:56:50 311331 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| SessionInfoHandler.Helpers.SessionInfoHandlerFactory | GetSessionHandlerInstance() : Class Name = SessionInfoHandler.SelfServiceHandler     
+2025-05-28 12:56:50 314213 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| SessionInfoHandler.SelfServiceHandler | {3000} eCustDetails: {
+  "name": "Livechat2 TestApp User",
+  "address": "PC",
+  "pIntent": "ActiveAI"
+}     
+2025-05-28 12:56:50 314371 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| SessionInfoHandler.SelfServiceHandler | {3000} pChannel = Chat     
+2025-05-28 12:56:50 314554 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| SessionInfoHandler.SelfServiceHandler | {3000} pIntent = ActiveAI     
+2025-05-28 12:56:50 314676 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| SessionInfoHandler.SelfServiceHandler | {3000} uuid = <null>     
+2025-05-28 12:56:50 317522 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Server | [Customer][sk:266][dev250528125650_3000] {3000} Customer session added to collection, count: 1, maxSessionCount : 10     
+2025-05-28 12:56:50 323783 |(3d08775eec07)| WARN    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.DataAccess | Property 'default' does not exist in given session info handler, or its value is null     
+2025-05-28 12:56:50 324303 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.DataAccess | Trying to find a key name 'default' in customer parameter json     
+2025-05-28 12:56:50 324406 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Finding extension for default=     
+2025-05-28 12:56:50 324579 |(3d08775eec07)| WARN    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.DataAccess | Property 'default' does not exist in given session info handler, or its value is null     
+2025-05-28 12:56:50 324642 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.DataAccess | Trying to find a key name 'default' in customer parameter json     
+2025-05-28 12:56:50 324698 |(3d08775eec07)| WARN    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.DataAccess | Value of the key default is null. Using 'default'     
+2025-05-28 12:56:50 324886 |(3d08775eec07)| WARN    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.DataAccess | Property 'default' does not exist in given session info handler, or its value is null     
+2025-05-28 12:56:50 324947 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.DataAccess | Trying to find a key name 'default' in customer parameter json     
+2025-05-28 12:56:50 325012 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.DataAccess | IsAutoAgentForTheSession() : Value is null     
+2025-05-28 12:56:50 325136 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} ismap extension : Skill = 651, EnableBuiltInAgent = False     
+2025-05-28 12:56:50 325331 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} ProcessUser: PBX Info is not available     
+2025-05-28 12:56:50 381772 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Sending message 
+type = SessionStarted 
+content = {"callinitiator":"server","sip":{"addr":"","port":0,"from":3000,"to":"651"},"SessionId":"dev250528125650_3000"} 
+sid = 3000     
+2025-05-28 12:56:50 383522 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 121     
+2025-05-28 12:56:50 383689 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3000     
+2025-05-28 12:56:50 383744 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | MsgListSize: 1     
+2025-05-28 12:56:50 384201 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} CallAgent message is not required, proceeding...      
+2025-05-28 12:56:50 384722 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} ProcessUser: ProcessUser method is starting...     
+2025-05-28 12:56:50 385987 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | {3000}c_sk:266} Message handler returned     
+2025-05-28 12:56:50 386702 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Thread_2 start     
+2025-05-28 12:56:50 386747 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Message received from User     
+2025-05-28 12:56:50 386878 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} External VDN check by-passed     
+2025-05-28 12:56:50 386955 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Session Id : 0
+Msg Type : ChatHistory
+msgContent : 
+msgContentLength : 0
+     
+2025-05-28 12:56:50 387015 |(3d08775eec07)| INFO    |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} SELECTED EXTENSION = 651     
+2025-05-28 12:56:50 387136 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} CSO(Call details) check by-passed     
+2025-05-28 12:56:50 387146 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | {3000}c_sk:266} Message handler returned     
+2025-05-28 12:56:50 387346 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TpmsInterconnect.Server | SipId Added     
+2025-05-28 12:56:50 387415 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Performing  route     
+2025-05-28 12:56:50 391034 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Routing to Agent via 'WorkQueue'      
+2025-05-28 12:56:50 391273 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} WorkqueueData: {
+  "name": "Livechat2 TestApp User",
+  "address": "PC",
+  "pIntent": "ActiveAI",
+  "device-info": {
+    "Type": "web",
+    "BrowserName": "Chrome",
+    "BrowserVersion": "136.0.0.0",
+    "OSName": "Windows",
+    "OSVersion": "NT 10.0",
+    "Platform": "desktop"
+  },
+  "sessionID": "3000",
+  "chatmode": "text"
+}     
+2025-05-28 12:56:50 391937 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| ExternalServiceConnector.Handlers.ExternalServiceHandler | AddWorkItemWithCustomerIdentifier: Add work item, RoutePath = wq     
+2025-05-28 12:56:50 392149 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| ExternalServiceConnector.Handlers.ExternalServiceHandler | AddWorkItemWithCustomerIdentifier:     
+2025-05-28 12:56:50 392615 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| ExternalServiceConnector.Handlers.ExternalServiceHandler | AddWorkItemWithCustomerIdentifier:     
+2025-05-28 12:56:50 492622 |(3d08775eec07)| ERROR   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| ExternalServiceConnector.Handlers.ExternalServiceHandler | Exception in AddWorkItemWithCustomerIdentifier   Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: {. Path '', line 1, position 1.
+   at Newtonsoft.Json.JsonTextReader.ReadStringValue(ReadType readType)
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at Tetherfi.Core.Connector.WorkQueue.WorkQueueRestHandler.AddWorkItemWithCustomerIdentifier(String channel, String skill, String itemid, String insertBy, String subchannel, String customerIdentifier, String data)
+  
+2025-05-28 12:56:50 499626 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| ExternalServiceConnector.Handlers.ExternalServiceHandler | AddWorkItemWithCustomerIdentifier: error     
+2025-05-28 12:56:50 499733 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| ExternalServiceConnector.Handlers.ExternalServiceHandler | AddWorkItemWithCustomerIdentifier:      
+2025-05-28 12:56:50 500325 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| ExternalServiceConnector.Handlers.ExternalServiceHandler | LoggedServiceDiscoveryAddress: WorkQueue Service Discovery Addresses, Method = AddWorkItemWithCustomerIdentifier, {"ServiceDiscoveryEnabled":true,"RefreshFrequency":15000,"EndPoints":[{"Id":"WorkQueue-7F-00-00-01-8083","Url":"http://172.31.73.181:8083/WQServer/","CertificatePath":null,"CertificatePassword":null,"Protocol":null,"MaxReceivedMessageSize":0,"MaxBufferPoolSize":0,"Type":"WorkQueue","Channel":null,"Name":"http://172.31.73.181:8083/WQServer/","Properties":null}]}     
+2025-05-28 12:56:50 501068 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Sending message 
+type = CallQueued 
+content = 651,-1,3000,dev250528125650_3000,,0 
+sid = 3000     
+2025-05-28 12:56:50 501189 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 45     
+2025-05-28 12:56:50 501235 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3000     
+2025-05-28 12:56:50 501272 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TpmsInterconnect.MSTcpConnection | MsgListSize: 1     
+2025-05-28 12:56:50 501416 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Setting workqueue timeout from application config.     
+2025-05-28 12:56:50 501465 |(3d08775eec07)| INFO    |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Waiting for Workqueue Timeout 60 Seconds     
+2025-05-28 12:56:50 501502 |(3d08775eec07)| INFO    |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} WorkQueueHandling: m_disconnectEvent.WaitOne(1000 * wqTimeout)     
+2025-05-28 12:56:51 239943 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 0 processed and sent successfully     
+2025-05-28 12:56:51 240113 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 0 processed and sent successfully     
+2025-05-28 12:56:51 241446 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3000 processed and sent successfully     
+2025-05-28 12:56:51 244119 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3000 processed and sent successfully     
+2025-05-28 12:56:54 541595 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Message received from User     
+2025-05-28 12:56:54 541835 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Session Id : 3000
+Msg Type : SessionEnd
+msgContent : client side end.
+msgContentLength : 16
+     
+2025-05-28 12:56:54 542174 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | {3000}c_sk:266} Message handler returned     
+2025-05-28 12:56:54 543575 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | {3000}c_sk:266} The Stream is, Readable. Message : Exception of type 'TpmsInterconnect.MSTcpConnection+DisconnectedException' was thrown.     
+2025-05-28 12:56:54 543743 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | {3000}c_sk:266} Disconnected     
+2025-05-28 12:56:54 543809 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | {3000}c_sk:266} Closing TCP Client     
+2025-05-28 12:56:54 544741 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Server | [Customer][sk:266][dev250528125650_3000] {3000} Customer closed     
+2025-05-28 12:56:54 545265 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Closing customer     
+2025-05-28 12:56:54 545381 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Session duration = 0 : 0 : 4     
+2025-05-28 12:56:54 545469 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Sending message 
+type = SessionEnd 
+content = closed 
+sid = 0     
+2025-05-28 12:56:54 545537 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 16     
+2025-05-28 12:56:54 545586 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 0     
+2025-05-28 12:56:54 545633 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | MsgListSize: 1     
+2025-05-28 12:56:54 545900 |(3d08775eec07)| ERROR   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | {3000} Message writting failed : Cannot access a disposed object.
+Object name: 'System.Net.Sockets.NetworkStream'.     
+2025-05-28 12:56:54 546126 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| SipLibrary.AgentRoute_Default_Impl | End() : Default Class Called     
+2025-05-28 12:56:54 546490 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Notifying workqueue thread about customer disconnection and informing to remove workqueue item if not routed to agent     
+2025-05-28 12:56:54 546606 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Close: m_disconnectEvent.Set()     
+2025-05-28 12:56:54 547166 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} End returned     
+2025-05-28 12:56:54 547208 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} End of waiting time, checking status     
+2025-05-28 12:56:54 547364 |(3d08775eec07)| INFO    |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | {3000}c_sk:266} Closing same thread, returning     
+2025-05-28 12:56:54 547407 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Customer is disconnected before queue timeout, removing element     
+2025-05-28 12:56:54 547470 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Server | [Customer][sk:266][dev250528125650_3000] {3000} Removing Customer from User list. Count : 1 , SessionId : dev250528125650_3000     
+2025-05-28 12:56:54 547526 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Server | [Customer][sk:266][dev250528125650_3000] {3000} Customer Removed from User list. Count : 0 ,maxSessionCount : 10, SessionId : dev250528125650_3000     
+2025-05-28 12:56:54 548587 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TextchatServer.Server | [Customer][sk:266][dev250528125650_3000] {3000} Customer wasn't in a conversation     
+2025-05-28 12:56:54 548760 |(3d08775eec07)| DEBUG   |[Thread_1_a3205232-c74c-4e38-832f-b4e8200bbb41]| TpmsInterconnect.MSTcpConnection | {3000}c_sk:266} Thread_1 end(2)     
+2025-05-28 12:56:54 547815 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| ExternalServiceConnector.Handlers.ExternalServiceHandler | RemoveWorkItemByItemIDAndChannel: Remove work item     
+2025-05-28 12:56:54 549490 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| ExternalServiceConnector.Handlers.ExternalServiceHandler | RemoveWorkItemByItemIDAndChannel:textchat,dev250528125650_3000     
+2025-05-28 12:56:54 549819 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| ExternalServiceConnector.Handlers.ExternalServiceHandler | RemoveWorkItemByItemIDAndChannel:textchat,dev250528125650_3000     
+2025-05-28 12:56:54 556091 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| ExternalServiceConnector.Handlers.ExternalServiceHandler | RemoveWorkItemByItemIDAndChannel: 1     
+2025-05-28 12:56:54 556255 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| ExternalServiceConnector.Handlers.ExternalServiceHandler | LoggedServiceDiscoveryAddress: WorkQueue Service Discovery Addresses, Method = RemoveWorkItemByItemIDAndChannel, {"ServiceDiscoveryEnabled":true,"RefreshFrequency":15000,"EndPoints":[{"Id":"WorkQueue-7F-00-00-01-8083","Url":"http://172.31.73.181:8083/WQServer/","CertificatePath":null,"CertificatePassword":null,"Protocol":null,"MaxReceivedMessageSize":0,"MaxBufferPoolSize":0,"Type":"WorkQueue","Channel":null,"Name":"http://172.31.73.181:8083/WQServer/","Properties":null}]}     
+2025-05-28 12:56:54 557124 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Returned from Route     
+2025-05-28 12:56:54 557170 |(3d08775eec07)| INFO    |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Route terminated     
+2025-05-28 12:56:54 557243 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Closing customer     
+2025-05-28 12:56:54 557279 |(3d08775eec07)| INFO    |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Session duration = 0 : 0 : 4     
+2025-05-28 12:56:54 557313 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| SipLibrary.AgentRoute_Default_Impl | End() : Default Class Called     
+2025-05-28 12:56:54 557374 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Notifying workqueue thread about customer disconnection and informing to remove workqueue item if not routed to agent     
+2025-05-28 12:56:54 557409 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Close: m_disconnectEvent.Set()     
+2025-05-28 12:56:54 557440 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} End returned     
+2025-05-28 12:56:54 557483 |(3d08775eec07)| DEBUG   |[Thread_2_pu_a7950393-e3c0-4f4d-86ed-2cd79c9b530c]| TextchatServer.Customer | [Customer][sk:266][dev250528125650_3000] {3000} Thread_2 end(final)     
+2025-05-28 12:56:55 253100 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 123 processed and sent successfully     
+2025-05-28 12:56:55 254160 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3000 processed and sent successfully     
+2025-05-28 12:57:03 067758 |(3d08775eec07)| INFO    |[.NET TP Worker]| RConfigProvider.Listener | Request../rconfig_tchat     
+2025-05-28 12:57:03 067996 |(3d08775eec07)| INFO    |[.NET TP Worker]| RConfigProvider.Listener | Request Authenticated     
+2025-05-28 12:57:05 297013 |(3d08775eec07)| INFO    |[connectivityCheck_63d89f36-0867-45f0-a988-6eef0a1a2d92]| TpmsInterconnect.MSTcpConnection | {3000}c_sk:266} Stream check terminated(1)     
+2025-05-28 12:57:05 297250 |(3d08775eec07)| DEBUG   |[connectivityCheck_63d89f36-0867-45f0-a988-6eef0a1a2d92]| TpmsInterconnect.MSTcpConnection | {3000}c_sk:266} Thread_connectivityCheck end     
+2025-05-28 12:57:14 527444 |(3d08775eec07)| INFO    |[.NET TP Worker]| RConfigProvider.Listener | Request../rconfig_tchat?enable.avmonitor=true     
+2025-05-28 12:57:14 527780 |(3d08775eec07)| INFO    |[.NET TP Worker]| RConfigProvider.Listener | Request Authenticated     
+2025-05-28 12:57:14 527985 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| RConfigProvider.Listener | key = enable.avmonitor value = true     
+2025-05-28 12:57:14 529486 |(3d08775eec07)| INFO    |[.NET TP Worker]| TextchatServer.Server | configs: avmonitor changed to true     
+2025-05-28 12:57:19 950847 |(3d08775eec07)| INFO    |[.NET TP Worker]| RConfigProvider.Listener | Request../rconfig_tchat     
+2025-05-28 12:57:19 951326 |(3d08775eec07)| INFO    |[.NET TP Worker]| RConfigProvider.Listener | Request Authenticated     
+2025-05-28 12:57:30 063814 |(3d08775eec07)| INFO    |[.NET TP Worker]| RConfigProvider.Listener | Request../rconfig_tchat?routepath=ms     
+2025-05-28 12:57:30 064170 |(3d08775eec07)| INFO    |[.NET TP Worker]| RConfigProvider.Listener | Request Authenticated     
+2025-05-28 12:57:30 064746 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| RConfigProvider.Listener | key = routepath value = ms     
+2025-05-28 12:57:35 471095 |(3d08775eec07)| INFO    |[8  ]| RConfigProvider.ConfigStore | In memory configs have been changed, writing file..     
+2025-05-28 12:57:35 721569 |(3d08775eec07)| INFO    |[.NET TP Worker]| RConfigProvider.Listener | Request../rconfig_tchat     
+2025-05-28 12:57:35 721791 |(3d08775eec07)| INFO    |[.NET TP Worker]| RConfigProvider.Listener | Request Authenticated     
+2025-05-28 12:57:45 516748 |(3d08775eec07)| INFO    |[13 ]| TpmsInterconnect.TcpServer | Client connected handler = 386     
+2025-05-28 12:57:45 518001 |(3d08775eec07)| INFO    |[13 ]| TpmsInterconnect.MSTcpConnection | {sk:386} Connection will Respond to heart-beats     
+2025-05-28 12:57:45 518886 |(3d08775eec07)| INFO    |[13 ]| TpmsInterconnect.TcpServer | Waiting for a client     
+2025-05-28 12:57:45 518914 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | {sk:386} Thread_1 start     
+2025-05-28 12:57:45 519110 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386] New user connected     
+2025-05-28 12:57:45 519175 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | {sk:386} Reading Started     
+2025-05-28 12:57:45 519440 |(3d08775eec07)| DEBUG   |[connectivityCheck_3bec8d3e-f2d5-4115-bddc-dc7c3d61c65a]| TpmsInterconnect.MSTcpConnection | {sk:386} Thread_connectivityCheck start     
+2025-05-28 12:57:45 519506 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386] Session Id : 0
+Msg Type : SessionStart
+msgContent : {"eCustDetails":{"name":"Livechat2 TestApp User","address":"PC","pIntent":"ActiveAI"},"device-info":{"Type":"web","BrowserName":"Chrome","BrowserVersion":"136.0.0.0","OSName":"Windows","OSVersion":"NT 10.0","Platform":"desktop"}}
+msgContentLength : 229
+     
+2025-05-28 12:57:45 520136 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386] Customer start message received     
+2025-05-28 12:57:45 520217 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386] Check max session count[10]. current session count: 0      
+2025-05-28 12:57:45 520280 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386] {New} User sip Id (2) 3001     
+2025-05-28 12:57:45 520332 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {New} ChatServer session Id (2) dev250528125745_3001     
+2025-05-28 12:57:45 520374 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| SipLibrary.AgentRoute | CreateInstance() : AgentRoute_Default_Impl Object Created     
+2025-05-28 12:57:45 520417 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386][dev250528125745_3001] {3001} Customer side MSConnection loggingid= 3001}c_sk:386 connid= 386)     
+2025-05-28 12:57:45 520518 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.SessionInfo | {3001} SipId = 3001     
+2025-05-28 12:57:45 520561 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| SessionInfoHandler.Helpers.SessionInfoHandlerFactory | GetSessionHandlerInstance() : Class Name = SessionInfoHandler.SelfServiceHandler     
+2025-05-28 12:57:45 520635 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| SessionInfoHandler.SelfServiceHandler | {3001} eCustDetails: {
+  "name": "Livechat2 TestApp User",
+  "address": "PC",
+  "pIntent": "ActiveAI"
+}     
+2025-05-28 12:57:45 521259 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| SessionInfoHandler.SelfServiceHandler | {3001} pChannel = Chat     
+2025-05-28 12:57:45 521303 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| SessionInfoHandler.SelfServiceHandler | {3001} pIntent = ActiveAI     
+2025-05-28 12:57:45 521334 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| SessionInfoHandler.SelfServiceHandler | {3001} uuid = <null>     
+2025-05-28 12:57:45 521453 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386][dev250528125745_3001] {3001} Customer session added to collection, count: 1, maxSessionCount : 10     
+2025-05-28 12:57:45 521553 |(3d08775eec07)| WARN    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.DataAccess | Property 'default' does not exist in given session info handler, or its value is null     
+2025-05-28 12:57:45 521588 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.DataAccess | Trying to find a key name 'default' in customer parameter json     
+2025-05-28 12:57:45 521651 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Finding extension for default=     
+2025-05-28 12:57:45 521687 |(3d08775eec07)| WARN    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.DataAccess | Property 'default' does not exist in given session info handler, or its value is null     
+2025-05-28 12:57:45 521727 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.DataAccess | Trying to find a key name 'default' in customer parameter json     
+2025-05-28 12:57:45 521769 |(3d08775eec07)| WARN    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.DataAccess | Value of the key default is null. Using 'default'     
+2025-05-28 12:57:45 521801 |(3d08775eec07)| WARN    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.DataAccess | Property 'default' does not exist in given session info handler, or its value is null     
+2025-05-28 12:57:45 521831 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.DataAccess | Trying to find a key name 'default' in customer parameter json     
+2025-05-28 12:57:45 521918 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.DataAccess | IsAutoAgentForTheSession() : Value is null     
+2025-05-28 12:57:45 521954 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} ismap extension : Skill = 651, EnableBuiltInAgent = False     
+2025-05-28 12:57:45 521986 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} ProcessUser: PBX Info is not available     
+2025-05-28 12:57:45 522041 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Sending message 
+type = SessionStarted 
+content = {"callinitiator":"server","sip":{"addr":"","port":0,"from":3001,"to":"651"},"SessionId":"dev250528125745_3001"} 
+sid = 3001     
+2025-05-28 12:57:45 522080 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 121     
+2025-05-28 12:57:45 522110 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:57:45 522558 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | MsgListSize: 1     
+2025-05-28 12:57:45 522728 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} CallAgent message is not required, proceeding...      
+2025-05-28 12:57:45 522798 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} ProcessUser: ProcessUser method is starting...     
+2025-05-28 12:57:45 523427 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | {3001}c_sk:386} Message handler returned     
+2025-05-28 12:57:45 523516 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Message received from User     
+2025-05-28 12:57:45 523455 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Thread_2 start     
+2025-05-28 12:57:45 523595 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Session Id : 0
+Msg Type : ChatHistory
+msgContent : 
+msgContentLength : 0
+     
+2025-05-28 12:57:45 523765 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | {3001}c_sk:386} Message handler returned     
+2025-05-28 12:57:45 523708 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} External VDN check by-passed     
+2025-05-28 12:57:45 523911 |(3d08775eec07)| INFO    |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} SELECTED EXTENSION = 651     
+2025-05-28 12:57:45 523958 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} CSO(Call details) check by-passed     
+2025-05-28 12:57:45 523996 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TpmsInterconnect.Server | SipId Added     
+2025-05-28 12:57:45 524030 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Performing  route     
+2025-05-28 12:57:45 525503 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Sending message 
+type = CallQueued 
+content = 651,-1,3001,dev250528125745_3001,,1 
+sid = 3001     
+2025-05-28 12:57:45 525598 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 45     
+2025-05-28 12:57:45 525637 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:57:45 525676 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TpmsInterconnect.MSTcpConnection | MsgListSize: 1     
+2025-05-28 12:57:45 525826 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} MediaServerCallHandling: short: m_disconnectEvent     
+2025-05-28 12:57:45 526506 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Server | {3001} Making MS SIP call (vdn=651, ani=3001)     
+2025-05-28 12:57:45 528806 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Monitor | {1000} Session Id : 3001
+Msg Type : AppMsg
+msgContent : {
+  "type": "bridge",
+  "session": "dev250528125745_3001",
+  "from": "server",
+  "ani": "3001",
+  "vdn": "651",
+  "id": "1902590079",
+  "uui": "3001"
+}
+msgContentLength : 151
+     
+2025-05-28 12:57:45 528980 |(3d08775eec07)| WARN    |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Server | {3001} SIP call request sent to Media Server (id=1902590079). Waiting for responce     
+2025-05-28 12:57:45 769746 |(3d08775eec07)| INFO    |[.NET TP Worker]| TpmsInterconnect.MSWSConnection | {{new}} message received (type=8, sid=3001)     
+2025-05-28 12:57:45 770293 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Monitor | {1000} OnNewMessage: Session Id : 3001
+Msg Type : AppMsg
+msgContent : {
+	"event" : "sip-connecting",
+	"from" : "service:MS:MS01",
+	"intent" : "call",
+	"session" : "dev250528125745_3001",
+	"to" : "all",
+	"type" : "eventav"
+}
+
+msgContentLength : 154
+     
+2025-05-28 12:57:45 770942 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Monitor | {1000} Message received from Media Server (type=eventav; sid=dev250528125745_3001, to=all)     
+2025-05-28 12:57:45 771727 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TpmsInterconnect.MSWSConnection | {{new}} Message handler returned     
+2025-05-28 12:57:45 777687 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 0 processed and sent successfully     
+2025-05-28 12:57:45 777756 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 0 processed and sent successfully     
+2025-05-28 12:57:45 777842 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3001 processed and sent successfully     
+2025-05-28 12:57:45 777968 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3001 processed and sent successfully     
+2025-05-28 12:57:46 005638 |(3d08775eec07)| INFO    |[.NET TP Worker]| TpmsInterconnect.MSWSConnection | {{new}} message received (type=8, sid=3001)     
+2025-05-28 12:57:46 005921 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Monitor | {1000} OnNewMessage: Session Id : 3001
+Msg Type : AppMsg
+msgContent : {
+	"from" : "service:MS:MS01",
+	"id" : "",
+	"intent" : "call",
+	"session" : "dev250528125745_3001",
+	"to" : "server",
+	"type" : "call-connecting",
+	"ucid" : "50096000311748437061"
+}
+
+msgContentLength : 182
+     
+2025-05-28 12:57:46 006012 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Monitor | {1000} Message received from Media Server (type=call-connecting; sid=dev250528125745_3001, to=server)     
+2025-05-28 12:57:46 006057 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TpmsInterconnect.MSWSConnection | {{new}} Message handler returned     
+2025-05-28 12:57:50 798980 |(3d08775eec07)| INFO    |[.NET TP Worker]| TpmsInterconnect.MSWSConnection | {{new}} message received (type=8, sid=3001)     
+2025-05-28 12:57:50 799213 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Monitor | {1000} OnNewMessage: Session Id : 3001
+Msg Type : AppMsg
+msgContent : {
+	"event" : "sip-connect",
+	"from" : "service:MS:MS01",
+	"intent" : "call",
+	"session" : "dev250528125745_3001",
+	"to" : "all",
+	"type" : "eventav"
+}
+
+msgContentLength : 151
+     
+2025-05-28 12:57:50 799288 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Monitor | {1000} Message received from Media Server (type=eventav; sid=dev250528125745_3001, to=all)     
+2025-05-28 12:57:50 799332 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TpmsInterconnect.MSWSConnection | {{new}} Message handler returned     
+2025-05-28 12:57:58 541511 |(3d08775eec07)| INFO    |[15 ]| TpmsInterconnect.TcpServer | Client connected handler = 267     
+2025-05-28 12:57:58 541764 |(3d08775eec07)| INFO    |[15 ]| TpmsInterconnect.MSTcpConnection | {sk:267} Connection will Respond to heart-beats     
+2025-05-28 12:57:58 542899 |(3d08775eec07)| INFO    |[15 ]| TpmsInterconnect.TcpServer | Waiting for a client     
+2025-05-28 12:57:58 543171 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {sk:267} Thread_1 start     
+2025-05-28 12:57:58 543644 |(3d08775eec07)| INFO    |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Server | [Agent][sk:267] Agent Connected     
+2025-05-28 12:57:58 543946 |(3d08775eec07)| INFO    |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {sk:267} Reading Started     
+2025-05-28 12:57:58 544244 |(3d08775eec07)| DEBUG   |[connectivityCheck_28c68ea5-54c7-465e-a4c3-d57bcac7efcb]| TpmsInterconnect.MSTcpConnection | {sk:267} Thread_connectivityCheck start     
+2025-05-28 12:57:58 544509 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267] {New} Message received from Agent with AgentId:      
+2025-05-28 12:57:58 544598 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267] {New} Message: Session Id : 3001
+Msg Type : SessionDetailRequest
+msgContent : {"AgentName":"sujan","AgentId":"50033","ChatMode":null,"ExtraParam":"{\\\"interactionId\\\":\\\"1000\\\",\\\"conferenceType\\\":\\\"\\\",\\\"serverName\\\":\\\"http://btn.tetherfi.cloud:5000\\\",\\\"profilePicture\\\":\\\"\\\",\\\"agentType\\\":\\\"AgentSupervisor\\\"}"}
+msgContentLength : 271
+ 
+ From:      
+2025-05-28 12:57:58 545436 |(3d08775eec07)| INFO    |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Server | [Agent][sk:267] {New} [3001] processing session details request message. agent : New , msg : Session Id : 3001
+Msg Type : SessionDetailRequest
+msgContent : {"AgentName":"sujan","AgentId":"50033","ChatMode":null,"ExtraParam":"{\\\"interactionId\\\":\\\"1000\\\",\\\"conferenceType\\\":\\\"\\\",\\\"serverName\\\":\\\"http://btn.tetherfi.cloud:5000\\\",\\\"profilePicture\\\":\\\"\\\",\\\"agentType\\\":\\\"AgentSupervisor\\\"}"}
+msgContentLength : 271
+     
+2025-05-28 12:57:58 545623 |(3d08775eec07)| INFO    |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Server | [Agent][sk:267] {New} [3001] sending session details response. agent : New , sessionDetailResponse : Session Id : 3001
+Msg Type : SessionDetailResponse
+msgContent : {
+  "name": "Livechat2 TestApp User",
+  "address": "PC",
+  "pIntent": "ActiveAI",
+  "device-info": {
+    "Type": "web",
+    "BrowserName": "Chrome",
+    "BrowserVersion": "136.0.0.0",
+    "OSName": "Windows",
+    "OSVersion": "NT 10.0",
+    "Platform": "desktop"
+  }
+}
+msgContentLength : 268
+     
+2025-05-28 12:57:58 545768 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267] {New} Sending message to Agent =  type = SessionDetailResponse content = {
+  "name": "Livechat2 TestApp User",
+  "address": "PC",
+  "pIntent": "ActiveAI",
+  "device-info": {
+    "Type": "web",
+    "BrowserName": "Chrome",
+    "BrowserVersion": "136.0.0.0",
+    "OSName": "Windows",
+    "OSVersion": "NT 10.0",
+    "Platform": "desktop"
+  }
+}     
+2025-05-28 12:57:58 545828 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 304     
+2025-05-28 12:57:58 545887 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:57:58 545919 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MsgListSize: 4     
+2025-05-28 12:57:58 546050 |(3d08775eec07)| INFO    |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Server | [Agent][sk:267] {New} [3001] session details response sent to agent : New ,sessionDetailResponse : Session Id : 3001
+Msg Type : SessionDetailResponse
+msgContent : {
+  "name": "Livechat2 TestApp User",
+  "address": "PC",
+  "pIntent": "ActiveAI",
+  "device-info": {
+    "Type": "web",
+    "BrowserName": "Chrome",
+    "BrowserVersion": "136.0.0.0",
+    "OSName": "Windows",
+    "OSVersion": "NT 10.0",
+    "Platform": "desktop"
+  }
+}
+msgContentLength : 268
+     
+2025-05-28 12:57:58 546091 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {sk:267} Message handler returned     
+2025-05-28 12:58:00 519928 |(3d08775eec07)| DEBUG   |[connectivityCheck_3bec8d3e-f2d5-4115-bddc-dc7c3d61c65a]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}c_sk:386} hbTx-count=1     
+2025-05-28 12:58:00 520914 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}c_sk:386} hbRx-386     
+2025-05-28 12:58:03 048233 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267] {New} Message received from Agent with AgentId:      
+2025-05-28 12:58:03 048438 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267] {New} Message: Session Id : 3001
+Msg Type : SessionStart
+msgContent : { "name":"sujan", "id":"50033", "vachatid":"3001", "chatmode":"", "extraparam":"{\"interactionId\":\"1000\",\"conferenceType\":\"\",\"serverName\":\"http://btn.tetherfi.cloud:5000\",\"profilePicture\":\"\",\"agentType\":\"AgentSupervisor\"}" }
+msgContentLength : 243
+ 
+ From:      
+2025-05-28 12:58:03 049085 |(3d08775eec07)| INFO    |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Agent side MSConnection loggingid= 3001}a connid= 267)     
+2025-05-28 12:58:03 049205 |(3d08775eec07)| INFO    |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Server | [Agent][sk:267][50033][dev250528125745_3001] {3001} Updating queue time     
+2025-05-28 12:58:03 060278 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Session | {3001} Adding agent 50033 to Session dev250528125745_3001     
+2025-05-28 12:58:03 060563 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Session | {3001} Updating sessionInfo sessionid as 50033     
+2025-05-28 12:58:03 061786 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Sending message to Agent = 50033 type = SessionStart content = {
+  "name": "Livechat2 TestApp User",
+  "address": "PC",
+  "pIntent": "ActiveAI",
+  "device-info": {
+    "Type": "web",
+    "BrowserName": "Chrome",
+    "BrowserVersion": "136.0.0.0",
+    "OSName": "Windows",
+    "OSVersion": "NT 10.0",
+    "Platform": "desktop"
+  },
+  "QUEUE_TIME": "17",
+  "vachatid": "dev250528125745_3001|",
+  "tchatsid": "dev250528125745_3001"
+}     
+2025-05-28 12:58:03 061890 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 377     
+2025-05-28 12:58:03 061934 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 0     
+2025-05-28 12:58:03 061973 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MsgListSize: 1     
+2025-05-28 12:58:03 062126 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Sending message to Agent = 50033 type = ChatHistory content =      
+2025-05-28 12:58:03 062218 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 8     
+2025-05-28 12:58:03 062262 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 0     
+2025-05-28 12:58:03 062298 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MsgListSize: 0     
+2025-05-28 12:58:03 062891 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Session | {3001} Session: UpdateSessionStatus(true)     
+2025-05-28 12:58:03 063027 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} UpdateSessionStatus: m_sessionBridgedEvent.Set()     
+2025-05-28 12:58:03 064017 |(3d08775eec07)| INFO    |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Server | [Agent][sk:267][50033][dev250528125745_3001] {3001} Bridge created     
+2025-05-28 12:58:03 064165 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Sending message 
+type = SessionStart 
+content = { "name":"sujan", "id":"50033", "vachatid":"3001", "chatmode":"", "extraparam":"{\"interactionId\":\"1000\",\"conferenceType\":\"\",\"serverName\":\"http://btn.tetherfi.cloud:5000\",\"profilePicture\":\"\",\"agentType\":\"AgentSupervisor\"}" } 
+sid = 3001     
+2025-05-28 12:58:03 064270 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 253     
+2025-05-28 12:58:03 064324 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:58:03 064373 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MsgListSize: 1     
+2025-05-28 12:58:03 064543 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} Message handler returned     
+2025-05-28 12:58:03 786829 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3001 processed and sent successfully     
+2025-05-28 12:58:03 791360 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3001 processed and sent successfully     
+2025-05-28 12:58:03 792475 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3001 processed and sent successfully     
+2025-05-28 12:58:12 041957 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message received from Agent with AgentId: 50033     
+2025-05-28 12:58:12 042165 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message: Session Id : 3001
+Msg Type : TypingStateChanged
+msgContent : 0
+msgContentLength : 1
+ 
+ From: 50033     
+2025-05-28 12:58:12 043248 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Sending message 
+type = TypingStateChanged 
+content = 0 
+sid = 3001     
+2025-05-28 12:58:12 043372 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 18     
+2025-05-28 12:58:12 043423 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:58:12 043460 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MsgListSize: 2     
+2025-05-28 12:58:12 043558 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} Message handler returned     
+2025-05-28 12:58:12 659933 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message received from Agent with AgentId: 50033     
+2025-05-28 12:58:12 660102 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message: Session Id : 3001
+Msg Type : TypingStateChanged
+msgContent : 1
+msgContentLength : 1
+ 
+ From: 50033     
+2025-05-28 12:58:12 660158 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Sending message 
+type = TypingStateChanged 
+content = 1 
+sid = 3001     
+2025-05-28 12:58:12 660196 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 18     
+2025-05-28 12:58:12 660227 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:58:12 660257 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MsgListSize: 2     
+2025-05-28 12:58:12 660339 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} Message handler returned     
+2025-05-28 12:58:12 660425 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message received from Agent with AgentId: 50033     
+2025-05-28 12:58:12 660463 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message: Session Id : 3001
+Msg Type : UserMsg
+msgContent : hi
+msgContentLength : 2
+ 
+ From: 50033     
+2025-05-28 12:58:12 661357 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Sending message 
+type = UserMsg 
+content = hi 
+sid = 3001     
+2025-05-28 12:58:12 661469 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 19     
+2025-05-28 12:58:12 661506 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:58:12 661537 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MsgListSize: 2     
+2025-05-28 12:58:12 661644 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} Message handler returned     
+2025-05-28 12:58:13 544498 |(3d08775eec07)| DEBUG   |[connectivityCheck_28c68ea5-54c7-465e-a4c3-d57bcac7efcb]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}a} hbTx-count=1     
+2025-05-28 12:58:13 544721 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}a} hbRx-267     
+2025-05-28 12:58:14 877592 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Message received from User     
+2025-05-28 12:58:14 877782 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Session Id : 3001
+Msg Type : AppMsg
+msgContent : {"to":{"id":""},"from":"50033","type":"delivery-recipt"}
+msgContentLength : 56
+     
+2025-05-28 12:58:14 879399 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Sending message to Agent = 50033 type = AppMsg content = {"to":{"id":""},"from":"50033","type":"delivery-recipt"}     
+2025-05-28 12:58:14 879533 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 69     
+2025-05-28 12:58:14 879575 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:58:14 879606 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | MsgListSize: 2     
+2025-05-28 12:58:14 879714 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | {3001}c_sk:386} Message handler returned     
+2025-05-28 12:58:15 520778 |(3d08775eec07)| DEBUG   |[connectivityCheck_3bec8d3e-f2d5-4115-bddc-dc7c3d61c65a]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}c_sk:386} hbTx-count=1     
+2025-05-28 12:58:15 521524 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}c_sk:386} hbRx-386     
+2025-05-28 12:58:15 796867 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3001 processed and sent successfully     
+2025-05-28 12:58:25 970172 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Message received from User     
+2025-05-28 12:58:25 970371 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Session Id : 3001
+Msg Type : AppMsg
+msgContent : {"type":"requestav","param":"audio","owner":"user:pKGlNnY9Z2e60jE0f7LQMkPSwdIKDl82PDA7piEdYovB6Tn1585YolH48WHqCTqf","version":2,"offering":"audio","__localId":"user:pKGlNnY9Z2e60jE0f7LQMkPSwdIKDl82PDA7piEdYovB6Tn1585YolH48WHqCTqf","isvideo":true,"avlsequence":1,"avrsequence":0}
+msgContentLength : 278
+     
+2025-05-28 12:58:25 970967 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Sending message to Agent = 50033 type = AppMsg content = {"type":"requestav","param":"audio","owner":"user:pKGlNnY9Z2e60jE0f7LQMkPSwdIKDl82PDA7piEdYovB6Tn1585YolH48WHqCTqf","version":2,"offering":"audio","__localId":"user:pKGlNnY9Z2e60jE0f7LQMkPSwdIKDl82PDA7piEdYovB6Tn1585YolH48WHqCTqf","isvideo":true,"avlsequence":1,"avrsequence":0}     
+2025-05-28 12:58:25 971083 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 291     
+2025-05-28 12:58:25 971122 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:58:25 971152 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | MsgListSize: 2     
+2025-05-28 12:58:25 971252 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | {3001}c_sk:386} Message handler returned     
+2025-05-28 12:58:26 802332 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3001 processed and sent successfully     
+2025-05-28 12:58:26 948533 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message received from Agent with AgentId: 50033     
+2025-05-28 12:58:26 948732 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message: Session Id : 3001
+Msg Type : AppMsg
+msgContent : {"param":"audio-received","callType":"Audio"}
+msgContentLength : 45
+ 
+ From: 50033     
+2025-05-28 12:58:26 948838 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Sending message 
+type = AppMsg 
+content = {"param":"audio-received","callType":"Audio"} 
+sid = 3001     
+2025-05-28 12:58:26 948900 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 62     
+2025-05-28 12:58:26 948934 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:58:26 948972 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MsgListSize: 2     
+2025-05-28 12:58:26 949633 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} Message handler returned     
+2025-05-28 12:58:27 803004 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3001 processed and sent successfully     
+2025-05-28 12:58:28 544925 |(3d08775eec07)| DEBUG   |[connectivityCheck_28c68ea5-54c7-465e-a4c3-d57bcac7efcb]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}a} hbTx-count=1     
+2025-05-28 12:58:28 545153 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}a} hbRx-267     
+2025-05-28 12:58:30 521148 |(3d08775eec07)| DEBUG   |[connectivityCheck_3bec8d3e-f2d5-4115-bddc-dc7c3d61c65a]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}c_sk:386} hbTx-count=1     
+2025-05-28 12:58:30 521530 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}c_sk:386} hbRx-386     
+2025-05-28 12:58:32 670916 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message received from Agent with AgentId: 50033     
+2025-05-28 12:58:32 671113 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message: Session Id : 3001
+Msg Type : AppMsg
+msgContent : {"type":"avtstatus","owner":"1000_50033_sujan bolar","param":"audio","source":"escalate","intent":"call","sessionid":"dev250528125745_3001"}
+msgContentLength : 140
+ 
+ From: 50033     
+2025-05-28 12:58:32 671237 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Sending message 
+type = AppMsg 
+content = {"type":"avtstatus","owner":"1000_50033_sujan bolar","param":"audio","source":"escalate","intent":"call","sessionid":"dev250528125745_3001"} 
+sid = 3001     
+2025-05-28 12:58:32 671503 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 157     
+2025-05-28 12:58:32 671541 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:58:32 671572 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MsgListSize: 2     
+2025-05-28 12:58:32 671650 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} Message handler returned     
+2025-05-28 12:58:32 682249 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message received from Agent with AgentId: 50033     
+2025-05-28 12:58:32 682411 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message: Session Id : 3001
+Msg Type : AppMsg
+msgContent : {"param":"audio-accepting","callType":"Audio"}
+msgContentLength : 46
+ 
+ From: 50033     
+2025-05-28 12:58:32 682523 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Sending message 
+type = AppMsg 
+content = {"param":"audio-accepting","callType":"Audio"} 
+sid = 3001     
+2025-05-28 12:58:32 682615 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 63     
+2025-05-28 12:58:32 682648 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:58:32 682678 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MsgListSize: 2     
+2025-05-28 12:58:32 682772 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} Message handler returned     
+2025-05-28 12:58:33 304665 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3001 processed and sent successfully     
+2025-05-28 12:58:33 305242 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3001 processed and sent successfully     
+2025-05-28 12:58:35 472643 |(3d08775eec07)| INFO    |[8  ]| RConfigProvider.ConfigStore | In memory configs have been changed, writing file..     
+2025-05-28 12:58:43 545292 |(3d08775eec07)| DEBUG   |[connectivityCheck_28c68ea5-54c7-465e-a4c3-d57bcac7efcb]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}a} hbTx-count=1     
+2025-05-28 12:58:43 545680 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}a} hbRx-267     
+2025-05-28 12:58:45 399187 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message received from Agent with AgentId: 50033     
+2025-05-28 12:58:45 399376 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Message: Session Id : 3001
+Msg Type : AppMsg
+msgContent : {"type":"endav","reason":"hungup","param":"audio","intent":"call","sessionid":"dev250528125745_3001"}
+msgContentLength : 101
+ 
+ From: 50033     
+2025-05-28 12:58:45 399512 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Monitor | {1000} Sending a copy of the message to Media Server From: 50033     
+2025-05-28 12:58:45 399790 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Monitor | {1000} Session Id : 3001
+Msg Type : AppMsg
+msgContent : {
+  "type": "endav",
+  "reason": "hungup",
+  "param": "audio",
+  "intent": "call",
+  "sessionid": "dev250528125745_3001",
+  "from": "50033",
+  "session": "dev250528125745_3001"
+}
+msgContentLength : 178
+     
+2025-05-28 12:58:45 399904 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Sending message 
+type = AppMsg 
+content = {
+  "type": "endav",
+  "reason": "hungup",
+  "param": "audio",
+  "intent": "call",
+  "sessionid": "dev250528125745_3001",
+  "from": "50033",
+  "session": "dev250528125745_3001"
+} 
+sid = 3001     
+2025-05-28 12:58:45 399949 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 195     
+2025-05-28 12:58:45 399980 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:58:45 400016 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | MsgListSize: 2     
+2025-05-28 12:58:45 400433 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} Message handler returned     
+2025-05-28 12:58:45 521604 |(3d08775eec07)| DEBUG   |[connectivityCheck_3bec8d3e-f2d5-4115-bddc-dc7c3d61c65a]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}c_sk:386} hbTx-count=1     
+2025-05-28 12:58:45 522257 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection+HeartBeat | {3001}c_sk:386} hbRx-386     
+2025-05-28 12:58:45 609564 |(3d08775eec07)| INFO    |[.NET TP Worker]| TpmsInterconnect.MSWSConnection | {{new}} message received (type=8, sid=3001)     
+2025-05-28 12:58:45 610216 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Monitor | {1000} OnNewMessage: Session Id : 3001
+Msg Type : AppMsg
+msgContent : {
+	"event" : "call-ended",
+	"from" : "service:MS:MS01",
+	"intent" : "call",
+	"session" : "dev250528125745_3001",
+	"to" : "all",
+	"type" : "eventav"
+}
+
+msgContentLength : 150
+     
+2025-05-28 12:58:45 610355 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Monitor | {1000} Message received from Media Server (type=eventav; sid=dev250528125745_3001, to=all)     
+2025-05-28 12:58:45 610879 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Sending message 
+type = AppMsg 
+content = {
+	"event" : "call-ended",
+	"from" : "service:MS:MS01",
+	"intent" : "call",
+	"session" : "dev250528125745_3001",
+	"to" : "all",
+	"type" : "eventav"
+}
+ 
+sid = 3001     
+2025-05-28 12:58:45 610971 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 165     
+2025-05-28 12:58:45 611016 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:58:45 611052 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TpmsInterconnect.MSTcpConnection | MsgListSize: 3     
+2025-05-28 12:58:45 611175 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Sending message to Agent = 50033 type = AppMsg content = {
+	"event" : "call-ended",
+	"from" : "service:MS:MS01",
+	"intent" : "call",
+	"session" : "dev250528125745_3001",
+	"to" : "all",
+	"type" : "eventav"
+}
+     
+2025-05-28 12:58:45 611221 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 165     
+2025-05-28 12:58:45 611253 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 3001     
+2025-05-28 12:58:45 611281 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TpmsInterconnect.MSTcpConnection | MsgListSize: 3     
+2025-05-28 12:58:45 611345 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TpmsInterconnect.MSWSConnection | {{new}} Message handler returned     
+2025-05-28 12:58:45 818637 |(3d08775eec07)| INFO    |[.NET TP Worker]| TpmsInterconnect.MSWSConnection | {{new}} message received (type=8, sid=3001)     
+2025-05-28 12:58:45 818907 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Monitor | {1000} OnNewMessage: Session Id : 3001
+Msg Type : AppMsg
+msgContent : {
+	"from" : "service:MS:MS01",
+	"id" : "1902590079",
+	"intent" : "call",
+	"session" : "dev250528125745_3001",
+	"status" : "end",
+	"to" : "server",
+	"type" : "bridge"
+}
+
+msgContentLength : 168
+     
+2025-05-28 12:58:45 818990 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Monitor | {1000} Message received from Media Server (type=bridge; sid=dev250528125745_3001, to=server)     
+2025-05-28 12:58:45 819445 |(3d08775eec07)| INFO    |[.NET TP Worker]| TextchatServer.Server | {3001} OnControlMessage: extracting details     
+2025-05-28 12:58:45 819569 |(3d08775eec07)| INFO    |[.NET TP Worker]| TextchatServer.Server | {3001} OnControlMessage: extracted details     
+2025-05-28 12:58:45 819629 |(3d08775eec07)| INFO    |[.NET TP Worker]| TextchatServer.Server | {3001} OnControlMessage: type, bridge     
+2025-05-28 12:58:45 819671 |(3d08775eec07)| INFO    |[.NET TP Worker]| TextchatServer.Server | {3001} OnControlMessage: type = bridge     
+2025-05-28 12:58:45 819702 |(3d08775eec07)| INFO    |[.NET TP Worker]| TextchatServer.Server | {3001} OnControlMessage: id, 1902590079     
+2025-05-28 12:58:45 819751 |(3d08775eec07)| INFO    |[.NET TP Worker]| TextchatServer.Server | {3001} OnControlMessage: reqObj.wait.Set     
+2025-05-28 12:58:45 819797 |(3d08775eec07)| INFO    |[.NET TP Worker]| TextchatServer.Server | {3001} OnControlMessage: Successfully wait set     
+2025-05-28 12:58:45 819835 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Monitor | {1000} OnNewMessage: bridge return     
+2025-05-28 12:58:45 819838 |(3d08775eec07)| WARN    |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Server | {3001} SIP call continuing (id=1902590079)     
+2025-05-28 12:58:45 819902 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TpmsInterconnect.MSWSConnection | {{new}} Message handler returned     
+2025-05-28 12:58:45 820163 |(3d08775eec07)| WARN    |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Server | {3001} Media Server returned SIP success responce     
+2025-05-28 12:58:45 820231 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} media server call handling complete     
+2025-05-28 12:58:45 820272 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Returned from Route     
+2025-05-28 12:58:45 820312 |(3d08775eec07)| INFO    |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Route terminated     
+2025-05-28 12:58:45 820423 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Closing customer     
+2025-05-28 12:58:45 820471 |(3d08775eec07)| INFO    |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Session duration = 0 : 1 : 0     
+2025-05-28 12:58:45 820518 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Sending message 
+type = SessionEnd 
+content = closed 
+sid = 0     
+2025-05-28 12:58:45 820555 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TpmsInterconnect.MSTcpConnection | MessageDataLength: 16     
+2025-05-28 12:58:45 820589 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TpmsInterconnect.MSTcpConnection | Msg SessionID: 0     
+2025-05-28 12:58:45 820623 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TpmsInterconnect.MSTcpConnection | MsgListSize: 1     
+2025-05-28 12:58:45 820737 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| SipLibrary.AgentRoute_Default_Impl | End() : Default Class Called     
+2025-05-28 12:58:45 821072 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Monitor | {1000} Sending session end message to Media Server     
+2025-05-28 12:58:45 821286 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Monitor | {1000} Session Id : 3001
+Msg Type : AppMsg
+msgContent : {
+  "type": "bye",
+  "session": "dev250528125745_3001",
+  "from": "server"
+}
+msgContentLength : 76
+     
+2025-05-28 12:58:45 821381 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Notifying workqueue thread about customer disconnection and informing to remove workqueue item if not routed to agent     
+2025-05-28 12:58:45 821433 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Close: m_disconnectEvent.Set()     
+2025-05-28 12:58:45 821483 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | {3001}c_sk:386} The Stream is, Readable. Message : Exception of type 'TpmsInterconnect.MSTcpConnection+DisconnectedException' was thrown.     
+2025-05-28 12:58:45 821496 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} End returned     
+2025-05-28 12:58:45 822371 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | {3001}c_sk:386} Closing TCP Client     
+2025-05-28 12:58:45 822493 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386][dev250528125745_3001] {3001} Customer closed     
+2025-05-28 12:58:45 822587 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Closing customer     
+2025-05-28 12:58:45 822630 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Session duration = 0 : 1 : 0     
+2025-05-28 12:58:45 822666 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| SipLibrary.AgentRoute_Default_Impl | End() : Default Class Called     
+2025-05-28 12:58:45 822704 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Notifying workqueue thread about customer disconnection and informing to remove workqueue item if not routed to agent     
+2025-05-28 12:58:45 822740 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Close: m_disconnectEvent.Set()     
+2025-05-28 12:58:45 822774 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} End returned     
+2025-05-28 12:58:45 822805 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | {3001}c_sk:386} Closing same thread, returning     
+2025-05-28 12:58:45 822891 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386][dev250528125745_3001] {3001} Removing Customer from User list. Count : 1 , SessionId : dev250528125745_3001     
+2025-05-28 12:58:45 822939 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386][dev250528125745_3001] {3001} Customer Removed from User list. Count : 0 ,maxSessionCount : 10, SessionId : dev250528125745_3001     
+2025-05-28 12:58:45 822978 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386][dev250528125745_3001] {3001} Customer closed lock     
+2025-05-28 12:58:45 826244 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Session | [SessionLOCK] Session LOCK acquired by SessionId: dev250528125745_3001, invokeBy : CustomerSessionClose, m_SessionId:dev250528125745_3001, m_LoggingId : 3001, AgentId : 50033, Customer.LoggingId : 3001,Customer.SessionId : dev250528125745_3001, lockObj : {"LockOwner":"dev250528125745_3001","ThreadId":12,"AcquiredTime":"2025-05-28T12:58:03.0510842+00:00","UserSessionId":"dev250528125745_3001","UserConnectionId":"386","UserLoggingId":"3001","AgentConnectionId":"267","AgentLoggingId":"3001","AgentSessionId":"dev250528125745_3001","ThreadName":"Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677","InvokeBy":"UNKNOWN"}     
+2025-05-28 12:58:45 826526 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386][dev250528125745_3001] {3001} Removing Customer from Conversations list     
+2025-05-28 12:58:45 826978 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Session | {3001} Breaking relay     
+2025-05-28 12:58:45 827084 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Closing customer     
+2025-05-28 12:58:45 827156 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Session duration = 0 : 1 : 0     
+2025-05-28 12:58:45 827211 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| SipLibrary.AgentRoute_Default_Impl | End() : Default Class Called     
+2025-05-28 12:58:45 827262 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Notifying workqueue thread about customer disconnection and informing to remove workqueue item if not routed to agent     
+2025-05-28 12:58:45 827310 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Close: m_disconnectEvent.Set()     
+2025-05-28 12:58:45 827362 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} End returned     
+2025-05-28 12:58:45 827411 |(3d08775eec07)| INFO    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | {3001}c_sk:386} Closing same thread, returning     
+2025-05-28 12:58:45 827588 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Session | {3001} Breaking relay- m_Agents list clear     
+2025-05-28 12:58:45 827656 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386][dev250528125745_3001] {3001} Removing session object from conversations list. cust.SessionId : dev250528125745_3001     
+2025-05-28 12:58:45 827725 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386][dev250528125745_3001] {3001} Removed session object from conversations list. cust.SessionId : dev250528125745_3001     
+2025-05-28 12:58:45 827691 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Session | {3001} Breaking relay. 50033 close     
+2025-05-28 12:58:45 827898 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Session+Key | [SessionLOCK] Key - lock released when object dispose. {"LockOwner":"dev250528125745_3001","ThreadId":12,"AcquiredTime":"2025-05-28T12:58:03.0510842+00:00","UserSessionId":"dev250528125745_3001","UserConnectionId":"386","UserLoggingId":"3001","AgentConnectionId":"267","AgentLoggingId":"3001","AgentSessionId":"dev250528125745_3001","ThreadName":"Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677","InvokeBy":"CustomerSessionClose"}     
+2025-05-28 12:58:45 828050 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386][dev250528125745_3001] {3001} Customer session close - lock released. cust.SessionId : dev250528125745_3001     
+2025-05-28 12:58:45 828113 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Closing Agent     
+2025-05-28 12:58:45 828164 |(3d08775eec07)| WARN    |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TextchatServer.Server | [Customer][sk:386][dev250528125745_3001] {3001} SessionEndMissing     
+2025-05-28 12:58:45 828220 |(3d08775eec07)| DEBUG   |[Thread_1_afdbae0a-081e-47df-b4d6-77dc563b0946]| TpmsInterconnect.MSTcpConnection | {3001}c_sk:386} Thread_1 end(2)     
+2025-05-28 12:58:45 828349 |(3d08775eec07)| DEBUG   |[Thread_2_pu_07eaa169-8208-4c67-9af8-496d49772067]| TextchatServer.Customer | [Customer][sk:386][dev250528125745_3001] {3001} Thread_2 end(final)     
+2025-05-28 12:58:45 828599 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} The Stream is, Not Readable. Message : Exception of type 'TpmsInterconnect.MSTcpConnection+DisconnectedException' was thrown.     
+2025-05-28 12:58:45 828735 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} Disconnected     
+2025-05-28 12:58:45 828796 |(3d08775eec07)| INFO    |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} Closing TCP Client     
+2025-05-28 12:58:45 830270 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Server | [Agent][sk:267][50033][dev250528125745_3001] {3001} Waiting for agents to connect back on disconnect for 10000 milliseconds     
+2025-05-28 12:58:46 310675 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3001 processed and sent successfully     
+2025-05-28 12:58:46 311016 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 3001 processed and sent successfully     
+2025-05-28 12:58:46 311350 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| MessageDistributor.MessageDistributor | [MessageDistributor] Message, SessionId: 123 processed and sent successfully     
+2025-05-28 12:58:55 830733 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Server | [Agent][sk:267][50033][dev250528125745_3001] {3001} Agent in a conversation, but unable to find session object(2)     
+2025-05-28 12:58:55 830948 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TextchatServer.Agent | [Agent][sk:267][50033][dev250528125745_3001] {3001} Closing Agent     
+2025-05-28 12:58:55 830997 |(3d08775eec07)| INFO    |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} Closing same thread, returning     
+2025-05-28 12:58:55 831034 |(3d08775eec07)| DEBUG   |[Thread_1_d908d1bc-82ce-4cda-b829-71967f09e677]| TpmsInterconnect.MSTcpConnection | {3001}a} Thread_1 end(2)     
+2025-05-28 12:58:55 831148 |(3d08775eec07)| DEBUG   |[.NET TP Worker]| TextchatServer.Session | {3001} Breaking relay. 50033 closed     
+2025-05-28 12:58:58 545602 |(3d08775eec07)| INFO    |[connectivityCheck_28c68ea5-54c7-465e-a4c3-d57bcac7efcb]| TpmsInterconnect.MSTcpConnection | {3001}a} Stream check terminated(1)     
+2025-05-28 12:58:58 545913 |(3d08775eec07)| DEBUG   |[connectivityCheck_28c68ea5-54c7-465e-a4c3-d57bcac7efcb]| TpmsInterconnect.MSTcpConnection | {3001}a} Thread_connectivityCheck end     
+2025-05-28 12:59:00 521931 |(3d08775eec07)| INFO    |[connectivityCheck_3bec8d3e-f2d5-4115-bddc-dc7c3d61c65a]| TpmsInterconnect.MSTcpConnection | {3001}c_sk:386} Stream check terminated(1)     
+2025-05-28 12:59:00 522239 |(3d08775eec07)| DEBUG   |[connectivityCheck_3bec8d3e-f2d5-4115-bddc-dc7c3d61c65a]| TpmsInterconnect.MSTcpConnection | {3001}c_sk:386} Thread_connectivityCheck end     
